@@ -1,0 +1,116 @@
+﻿@model PagedList.IPagedList<TraceabilityV3.Operator>
+@using PagedList
+@using PagedList.Mvc
+@using System.ComponentModel.DataAnnotations;
+@using System.Linq.Expressions;
+@using System.Reflection;
+
+@{
+    ViewBag.Title = "Index";
+    var pageSize = Request.QueryString["pageSize"];
+    var sortOrder = ViewBag.SortOrder;
+    var sortDirection = ViewBag.SortDirection;
+    var EmployeeId = Request.QueryString["EmployeeId"];
+    var FirstName = Request.QueryString["FirstName"];
+    var Code = Request.QueryString["Code"];
+    var WaypointID = Request.QueryString["WaypointID"];
+    var MaxRecords = Request.QueryString["MaxRecords"];
+}
+
+<h2>Operators</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+@using (Html.BeginForm("Index", "Operators", FormMethod.Get))
+{
+    <!-- Hidden fields for sortOrder and sortDirection -->
+    <input type="hidden" name="sortOrder" value="@sortOrder" />
+    <input type="hidden" name="sortDirection" value="@sortDirection" />
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.ActionLink("EmployeeId", "Index", new { sortOrder = "EmployeeId", sortDirection = sortDirection == "asc" ? "desc" : "asc", pageSize, FirstName, Code, WaypointID, MaxRecords })
+                @if (sortOrder == "EmployeeId")
+                {
+                    <i class="fa @(sortDirection == "asc" ? "fa-arrow-up" : "fa-arrow-down")"></i>
+                }
+            </th>
+            <th>
+                @Html.ActionLink("First Name", "Index", new { sortOrder = "FirstName", sortDirection = sortDirection == "asc" ? "desc" : "asc", pageSize, FirstName, Code, WaypointID, MaxRecords })
+                @if (sortOrder == "FirstName")
+                {
+                    <i class="fa @(sortDirection == "asc" ? "fa-arrow-up" : "fa-arrow-down")"></i>
+                }
+            </th>
+            @*<th>
+            @Html.ActionLink("Operator Code", "Index", new { sortOrder = "Code", sortDirection = sortDirection == "asc" ? "desc" : "asc", pageSize, FirstName, Code, WaypointID, MaxRecords })
+            @if (sortOrder == "Code")
+            {
+                <i class="fa @(sortDirection == "asc" ? "fa-arrow-up" : "fa-arrow-down")"></i>
+            }
+        </th>*@
+            <th>
+                @Html.ActionLink("WayPoint Id", "Index", new { sortOrder = "DeviceID", sortDirection = sortDirection == "asc" ? "desc" : "asc", pageSize, FirstName, Code, WaypointID, MaxRecords })
+                @if (sortOrder == "DeviceID")
+                {
+                    <i class="fa @(sortDirection == "asc" ? "fa-arrow-up" : "fa-arrow-down")"></i>
+                }
+            </th>
+            <th></th>
+        </tr>
+
+        <tr>
+            <td><input type="text" name="EmployeeId" value="@Request.QueryString["EmployeeId"]" class="form-control" placeholder="Search" /></td>
+            <td><input type="text" name="FirstName" value="@Request.QueryString["FirstName"]" class="form-control" placeholder="Search" /></td>
+            @*<td></td>*@
+            <td><input type="text" name="DeviceID" value="@Request.QueryString["WaypointID"]" class="form-control" placeholder="Search" /></td>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.EmployeeId)</td>
+                <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+                @*<td>@Html.DisplayFor(modelItem => item.Code)</td>*@
+                <td>@Html.DisplayFor(modelItem => item.WaypointID)</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { EmployeeId = item.EmployeeId }) |
+                    @Html.ActionLink("Details", "Details", new { EmployeeId = item.EmployeeId }) |
+                    @Html.ActionLink("Delete", "Delete", new { EmployeeId = item.EmployeeId })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    <div class="results-per-page-container">
+        <label for="MaxRecords" class="results-per-page-label">Maximum Records:</label>
+        <input type="text" name="MaxRecords" value="@Request.QueryString["MaxRecords"]" class="form-control" placeholder="100" />
+        <label for="pageSize" class="results-per-page-label">Results per page:</label>
+        <select id="pageSize" name="pageSize" class="results-per-page-select">
+            <option value="10" @(Request.QueryString["pageSize"] == "10" ? "selected" : "")>10</option>
+            <option value="25" @(Request.QueryString["pageSize"] == "25" ? "selected" : "")>25</option>
+            <option value="50" @(Request.QueryString["pageSize"] == "50" ? "selected" : "")>50</option>
+            <option value="100" @(Request.QueryString["pageSize"] == "100" ? "selected" : "")>100</option>
+        </select>
+        <button type="submit" class="results-per-page-button">Search</button>
+    </div>
+}
+
+<div class="d-flex justify-content-center">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, pageSize, sortOrder, sortDirection, MaxRecords, FirstName, Code, WaypointID }))
+</div>
+
+<div class="mt-3 text-center">
+    @if (ViewBag.ResultCount != null)
+    {
+        <p><strong>@ViewBag.ResultCount Records Found</strong></p>
+    }
+    @if (ViewBag.TimeTaken != null)
+    {
+        <p><strong>Search time: @ViewBag.TimeTaken ms</strong></p>
+    }
+</div>

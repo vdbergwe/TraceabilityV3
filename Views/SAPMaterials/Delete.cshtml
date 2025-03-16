@@ -1,0 +1,288 @@
+﻿@model TraceabilityV3.SAPMaterial
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SAPMaterial</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MAKTX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAKTX)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GTIN_CON)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GTIN_CON)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GTIN_HU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GTIN_HU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GTIN_Level1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GTIN_Level1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GTIN_Level2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GTIN_Level2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NetWt_CON)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NetWt_CON)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NetWt_HU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NetWt_HU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NetWt_Level1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NetWt_Level1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NetWt_Level2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NetWt_Level2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TareWt_CON)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TareWt_CON)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TareWt_HU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TareWt_HU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TareWt_Level1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TareWt_Level1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TareWt_Level2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TareWt_Level2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HUQty_CON)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HUQty_CON)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HUQty_Level1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HUQty_Level1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HUQty_Level2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HUQty_Level2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SAPUOM_CON)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SAPUOM_CON)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SAPUOM_HU)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SAPUOM_HU)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SAPUOM_Level1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SAPUOM_Level1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SAPUOM_Level2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SAPUOM_Level2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SAPUOM_Base)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SAPUOM_Base)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SAPUOM_Sales)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SAPUOM_Sales)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.QCUOM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.QCUOM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WtCatUOM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WtCatUOM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductWtCat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProductWtCat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BulkFlag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BulkFlag)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateFirstAdded)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateFirstAdded)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateLastUpdated)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateLastUpdated)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReadStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReadStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Retired)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Retired)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RetirementDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RetirementDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GTIN_SalesUOM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GTIN_SalesUOM)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

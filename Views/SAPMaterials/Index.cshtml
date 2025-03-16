@@ -1,0 +1,186 @@
+﻿@model PagedList.IPagedList<TraceabilityV3.SAPMaterial>
+@using PagedList.Mvc
+
+@{
+    ViewBag.Title = "SAP Materials (Search)";
+    var pageSize = Request.QueryString["pageSize"];
+    var sortOrder = ViewBag.SortOrder;
+    var sortDirection = ViewBag.SortDirection;
+    var SYSID = Request.QueryString["SYSID"];
+    var MANDT = Request.QueryString["MANDT"];
+    var WERKS = Request.QueryString["WERKS"];
+    var MATNR = Request.QueryString["MATNR"];
+    var MAKTX = Request.QueryString["MAKTX"];
+    var GTIN_CON = Request.QueryString["GTIN_CON"];
+    var GTIN_HU = Request.QueryString["GTIN_HU"];
+    var NetWt_HU = Request.QueryString["NetWt_HU"];
+    var HUQty_CON = Request.QueryString["HUQty_CON"];
+    var SAPUOM_CON = Request.QueryString["SAPUOM_CON"];
+    var SAPUOM_Base = Request.QueryString["SAPUOM_Base"];
+    var ProductType = Request.QueryString["ProductType"];
+    var MaxRecords = Request.QueryString["MaxRecords"];
+}
+
+<h2>SAP Materials (Search)</h2>
+
+@using (Html.BeginForm("Index", "SAPMaterials", FormMethod.Get))
+{
+    <!-- Hidden fields for sortOrder and sortDirection -->
+    <input type="hidden" name="sortOrder" value="@sortOrder" />
+    <input type="hidden" name="sortDirection" value="@sortDirection" />
+
+    <table class="table">
+        <thead>
+
+            <tr>
+                <th>
+                    @Html.ActionLink("SYSID", "Index", new { sortOrder = "SYSID", sortDirection = sortDirection == "asc" ? "desc" : "asc", pageSize, SYSID, MANDT, WERKS, MATNR, MAKTX, GTIN_CON, GTIN_HU, NetWt_HU, HUQty_CON, SAPUOM_CON, SAPUOM_Base, ProductType, MaxRecords })
+                    @if (sortOrder == "SYSID")
+                    {
+                        <i class="fa @(sortDirection == "asc" ? "fa-arrow-up" : "fa-arrow-down")"></i>
+                    }
+                </th>
+                <th>
+                    @Html.ActionLink("MANDT", "Index", new { sortOrder = "MANDT", sortDirection = sortDirection == "asc" ? "desc" : "asc", pageSize, SYSID, MANDT, WERKS, MATNR, MAKTX, GTIN_CON, GTIN_HU, NetWt_HU, HUQty_CON, SAPUOM_CON, SAPUOM_Base, ProductType, MaxRecords })
+                    @if (sortOrder == "MANDT")
+                    {
+                        <i class="fa @(sortDirection == "asc" ? "fa-arrow-up" : "fa-arrow-down")"></i>
+                    }
+                </th>
+                <th>
+                    @Html.ActionLink("WERKS", "Index", new { sortOrder = "WERKS", sortDirection = sortDirection == "asc" ? "desc" : "asc", pageSize, SYSID, MANDT, WERKS, MATNR, MAKTX, GTIN_CON, GTIN_HU, NetWt_HU, HUQty_CON, SAPUOM_CON, SAPUOM_Base, ProductType, MaxRecords })
+                    @if (sortOrder == "WERKS")
+                    {
+                        <i class="fa @(sortDirection == "asc" ? "fa-arrow-up" : "fa-arrow-down")"></i>
+                    }
+                </th>
+                <th>
+                    @Html.ActionLink("MATNR", "Index", new { sortOrder = "MATNR", sortDirection = sortDirection == "asc" ? "desc" : "asc", pageSize, SYSID, MANDT, WERKS, MATNR, MAKTX, GTIN_CON, GTIN_HU, NetWt_HU, HUQty_CON, SAPUOM_CON, SAPUOM_Base, ProductType, MaxRecords })
+                    @if (sortOrder == "MATNR")
+                    {
+                        <i class="fa @(sortDirection == "asc" ? "fa-arrow-up" : "fa-arrow-down")"></i>
+                    }
+                </th>
+                <th style="width: 285px">
+                    @Html.ActionLink("MAKTX", "Index", new { sortOrder = "MAKTX", sortDirection = sortDirection == "asc" ? "desc" : "asc", pageSize, SYSID, MANDT, WERKS, MATNR, MAKTX, GTIN_CON, GTIN_HU, NetWt_HU, HUQty_CON, SAPUOM_CON, SAPUOM_Base, ProductType, MaxRecords })
+                    @if (sortOrder == "MAKTX")
+                    {
+                        <i class="fa @(sortDirection == "asc" ? "fa-arrow-up" : "fa-arrow-down")"></i>
+                    }
+                </th>
+                <th>
+                    @Html.ActionLink("GTIN_CON", "Index", new { sortOrder = "GTIN_CON", sortDirection = sortDirection == "asc" ? "desc" : "asc", pageSize, SYSID, MANDT, WERKS, MATNR, MAKTX, GTIN_CON, GTIN_HU, NetWt_HU, HUQty_CON, SAPUOM_CON, SAPUOM_Base, ProductType, MaxRecords })
+                    @if (sortOrder == "GTIN_CON")
+                    {
+                        <i class="fa @(sortDirection == "asc" ? "fa-arrow-up" : "fa-arrow-down")"></i>
+                    }
+                </th>
+                <th>
+                    @Html.ActionLink("GTIN_HU", "Index", new { sortOrder = "GTIN_HU", sortDirection = sortDirection == "asc" ? "desc" : "asc", pageSize, SYSID, MANDT, WERKS, MATNR, MAKTX, GTIN_CON, GTIN_HU, NetWt_HU, HUQty_CON, SAPUOM_CON, SAPUOM_Base, ProductType, MaxRecords })
+                    @if (sortOrder == "GTIN_HU")
+                    {
+                        <i class="fa @(sortDirection == "asc" ? "fa-arrow-up" : "fa-arrow-down")"></i>
+                    }
+                </th>
+                <th>
+                    @Html.ActionLink("NetWt_HU", "Index", new { sortOrder = "NetWt_HU", sortDirection = sortDirection == "asc" ? "desc" : "asc", pageSize, SYSID, MANDT, WERKS, MATNR, MAKTX, GTIN_CON, GTIN_HU, NetWt_HU, HUQty_CON, SAPUOM_CON, SAPUOM_Base, ProductType, MaxRecords })
+                    @if (sortOrder == "NetWt_HU")
+                    {
+                        <i class="fa @(sortDirection == "asc" ? "fa-arrow-up" : "fa-arrow-down")"></i>
+                    }
+                </th>
+                <th>
+                    @Html.ActionLink("HUQty_CON", "Index", new { sortOrder = "HUQty_CON", sortDirection = sortDirection == "asc" ? "desc" : "asc", pageSize, SYSID, MANDT, WERKS, MATNR, MAKTX, GTIN_CON, GTIN_HU, NetWt_HU, HUQty_CON, SAPUOM_CON, SAPUOM_Base, ProductType, MaxRecords })
+                    @if (sortOrder == "HUQty_CON")
+                    {
+                        <i class="fa @(sortDirection == "asc" ? "fa-arrow-up" : "fa-arrow-down")"></i>
+                    }
+                </th>               
+                <th>
+                    @Html.ActionLink("ProductType", "Index", new { sortOrder = "ProductType", sortDirection = sortDirection == "asc" ? "desc" : "asc", pageSize, SYSID, MANDT, WERKS, MATNR, MAKTX, GTIN_CON, GTIN_HU, NetWt_HU, HUQty_CON, SAPUOM_CON, SAPUOM_Base, ProductType, MaxRecords })
+                    @if (sortOrder == "ProductType")
+                    {
+                        <i class="fa @(sortDirection == "asc" ? "fa-arrow-up" : "fa-arrow-down")"></i>
+                    }
+                </th>
+                <th style="width: 125px"></th>
+            </tr>
+
+            <tr>
+                <td><input type="text" name="SYSID" value="@Request.QueryString["SYSID"]" class="form-control" placeholder="Search" /></td>
+                <td><input type="text" name="MANDT" value="@Request.QueryString["MANDT"]" class="form-control" placeholder="Search" /></td>
+                <td><input type="text" name="WERKS" value="@Request.QueryString["WERKS"]" class="form-control" placeholder="Search" /></td>
+                <td><input type="text" name="MATNR" value="@Request.QueryString["MATNR"]" class="form-control" placeholder="Search" /></td>
+                <td><input type="text" name="MAKTX" value="@Request.QueryString["MAKTX"]" class="form-control" placeholder="Search Description" /></td>
+                <td><input type="text" name="GTIN_CON" value="@Request.QueryString["GTIN_CON"]" class="form-control" placeholder="Search" /></td>
+                <td><input type="text" name="GTIN_HU" value="@Request.QueryString["GTIN_HU"]" class="form-control" placeholder="Search" /></td>
+                <td><input type="text" name="NetWt_HU" value="@Request.QueryString["NetWt_HU"]" class="form-control" placeholder="Search" /></td>
+                <td><input type="text" name="HUQty_CON" value="@Request.QueryString["HUQty_CON"]" class="form-control" placeholder="Search" /></td>
+                <td><input type="text" name="ProductType" value="@Request.QueryString["ProductType"]" class="form-control" placeholder="Search" /></td>
+            </tr>
+
+        </thead>
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.SYSID)</td>
+                <td>@Html.DisplayFor(modelItem => item.MANDT)</td>
+                <td>@Html.DisplayFor(modelItem => item.WERKS)</td>
+                <td>
+                    @Html.Raw(item.MATNR != null && item.MATNR.Length >= 5
+                        ? item.MATNR.Substring(item.MATNR.Length - 5).TrimStart('0')
+                        : item.MATNR?.TrimStart('0'))
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.MAKTX)</td>
+                <td>@Html.DisplayFor(modelItem => item.GTIN_CON)</td>
+                <td>@Html.DisplayFor(modelItem => item.GTIN_HU)</td>
+                <td>@Html.DisplayFor(modelItem => item.NetWt_HU)</td>
+                <td>@Html.DisplayFor(modelItem => item.HUQty_CON)</td>
+                <td>@Html.DisplayFor(modelItem => item.ProductType)</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new {SYSID = item.SYSID,
+                                                          MANDT = item.MANDT,
+                                                          WERKS = item.WERKS,
+                                                          MATNR = item.MATNR}) |
+                    @Html.ActionLink("Details", "Details", new { SYSID = item.SYSID,
+                                                          MANDT = item.MANDT,
+                                                          WERKS = item.WERKS,
+                                                          MATNR = item.MATNR}) |
+                    @Html.ActionLink("Delete", "Delete", new { SYSID = item.SYSID,
+                                                          MANDT = item.MANDT,
+                                                          WERKS = item.WERKS,
+                                                          MATNR = item.MATNR})
+                </td>
+            </tr>
+        }
+    </table>
+    <div class="results-per-page-container">
+        <label for="MaxRecords" class="results-per-page-label">Maximum Records:</label>
+        <input type="text" name="MaxRecords" value="@Request.QueryString["MaxRecords"]" class="form-control" placeholder="100" />
+        <label for="pageSize" class="results-per-page-label">Results per page:</label>
+        <select id="pageSize" name="pageSize" class="results-per-page-select">
+            <option value="10" @(Request.QueryString["pageSize"] == "10" ? "selected" : "")>10</option>
+            <option value="25" @(Request.QueryString["pageSize"] == "25" ? "selected" : "")>25</option>
+            <option value="50" @(Request.QueryString["pageSize"] == "50" ? "selected" : "")>50</option>
+            <option value="100" @(Request.QueryString["pageSize"] == "100" ? "selected" : "")>100</option>
+        </select>
+        <button type="submit" class="results-per-page-button">Search</button>
+    </div>
+}
+
+<div class="d-flex justify-content-center">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, pageSize, sortOrder, sortDirection, MaxRecords, SYSID, MANDT, WERKS, MATNR, MAKTX, GTIN_CON, GTIN_HU, NetWt_HU, HUQty_CON, SAPUOM_CON, SAPUOM_Base, ProductType }))
+</div>
+
+<div class="mt-3 text-center">
+    @if (ViewBag.ResultCount != null)
+    {
+        <p><strong>@ViewBag.ResultCount Records Found</strong></p>
+    }
+    @if (ViewBag.TimeTaken != null)
+    {
+        <p><strong>Search time: @ViewBag.TimeTaken ms</strong></p>
+    }
+</div>

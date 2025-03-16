@@ -1,0 +1,364 @@
+2025/03/14 22:05:31: Exception: Input string was not in a correct format.
+StackTrace:    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at TraceabilityV3.Models.CentralAPIClient.<UploadRecord>d__3.MoveNext() in C:\Users\vdbergwe\source\repos\TraceabilityV3\Models\CentralAPIClient.cs:line 56
+--------------------------------------------------------------------------------
+2025/03/14 22:07:40: Warning: ZplLable is null. Some label data might be missing.
+--------------------------------------------------------------------------------
+2025/03/14 22:09:50: Exception: Input string was not in a correct format.
+StackTrace:    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at TraceabilityV3.Models.CentralAPIClient.<UploadRecord>d__3.MoveNext() in C:\Users\vdbergwe\source\repos\TraceabilityV3\Models\CentralAPIClient.cs:line 56
+--------------------------------------------------------------------------------
+2025/03/14 22:09:50: Warning: ZplLable is null. Some label data might be missing.
+--------------------------------------------------------------------------------
+2025/03/14 22:09:50: Exception: Input string was not in a correct format.
+StackTrace:    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at TraceabilityV3.Models.CentralAPIClient.<UploadRecord>d__3.MoveNext() in C:\Users\vdbergwe\source\repos\TraceabilityV3\Models\CentralAPIClient.cs:line 56
+--------------------------------------------------------------------------------
+2025/03/14 22:09:51: Warning: ZplLable is null. Some label data might be missing.
+--------------------------------------------------------------------------------
+2025/03/14 22:09:51: Exception: Input string was not in a correct format.
+StackTrace:    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at TraceabilityV3.Models.CentralAPIClient.<UploadRecord>d__3.MoveNext() in C:\Users\vdbergwe\source\repos\TraceabilityV3\Models\CentralAPIClient.cs:line 56
+--------------------------------------------------------------------------------
+2025/03/15 16:03:32: Warning: ZplLable is null. Some label data might be missing.
+--------------------------------------------------------------------------------
+2025/03/15 16:03:32: Exception: Input string was not in a correct format.
+StackTrace:    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at TraceabilityV3.Models.CentralAPIClient.<UploadRecord>d__3.MoveNext() in C:\Users\vdbergwe\source\repos\TraceabilityV3\Models\CentralAPIClient.cs:line 56
+--------------------------------------------------------------------------------
+2025/03/15 16:07:30: Exception: Input string was not in a correct format.
+StackTrace:    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at TraceabilityV3.Models.CentralAPIClient.<UploadRecord>d__3.MoveNext()
+--------------------------------------------------------------------------------
+2025/03/15 16:08:30: Exception: Input string was not in a correct format.
+StackTrace:    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at TraceabilityV3.Models.CentralAPIClient.<UploadRecord>d__3.MoveNext()
+--------------------------------------------------------------------------------
+2025/03/15 16:13:30: Exception: Input string was not in a correct format.
+StackTrace:    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at TraceabilityV3.Models.CentralAPIClient.<UploadRecord>d__3.MoveNext()
+--------------------------------------------------------------------------------
+2025/03/15 16:18:30: Exception: Input string was not in a correct format.
+StackTrace:    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at TraceabilityV3.Models.CentralAPIClient.<UploadRecord>d__3.MoveNext()
+--------------------------------------------------------------------------------
+2025/03/15 16:21:58: Exception: Input string was not in a correct format.
+StackTrace:    at System.Number.StringToNumber(String str, NumberStyles options, NumberBuffer& number, NumberFormatInfo info, Boolean parseDecimal)
+   at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
+   at System.Convert.ToInt32(String value)
+   at TraceabilityV3.Models.CentralAPIClient.<UploadRecord>d__3.MoveNext()
+--------------------------------------------------------------------------------
+2025/03/15 16:27:47: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070080","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T16:06:34.72","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"Registered","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070080","WaypointId":0,"Waypoint":"","Created":"2025-03-15T16:06:34.72","CreatedTime":"2025-03-15T16:06:34.72","CreatedDate":"2025-03-15T16:06:34.72","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025/03/15 16:06:35","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 16:27:51: Error: API responded with BadRequest
+Response: {"Message":"The request is invalid.","ModelState":{"combinedHU.TraceUnit.CreatedTime":["Error converting value 2025/03/15 16:06:34 to type 'System.Nullable`1[System.TimeSpan]'. Path 'TraceUnit.CreatedTime', line 1, position 453."]}}
+--------------------------------------------------------------------------------
+2025/03/15 16:31:40: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070097","WERKS":"1110","MATNR":"000000000000010008","ScannedCode":"16001345200330","Created":"2025-03-15T16:31:28.12","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"Accepted","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010008","SSCC":"00060013450000070097","WaypointId":40,"Waypoint":"","Created":"2025-03-15T16:31:28.12","CreatedTime":"2025-03-15T16:31:28.12","CreatedDate":"2025-03-15T16:31:28.12","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025/03/15 16:06:35","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 16:31:40: Error: API responded with BadRequest
+Response: {"Message":"The request is invalid.","ModelState":{"combinedHU.TraceUnit.CreatedTime":["Error converting value 2025/03/15 16:31:28 to type 'System.Nullable`1[System.TimeSpan]'. Path 'TraceUnit.CreatedTime', line 1, position 452."]}}
+--------------------------------------------------------------------------------
+2025/03/15 16:36:36: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070103","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"6001345010208","Created":"2025-03-15T16:35:51.93","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"Accepted","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070103","WaypointId":40,"Waypoint":"","Created":"2025-03-15T16:35:51.93","CreatedTime":"2025-03-15T16:35:51.93","CreatedDate":"2025-03-15T16:35:51.93","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025/03/15 16:06:35","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 16:36:36: Error: API responded with BadRequest
+Response: {"Message":"The request is invalid.","ModelState":{"combinedHU.TraceUnit.CreatedTime":["Error converting value 2025/03/15 16:35:51 to type 'System.Nullable`1[System.TimeSpan]'. Path 'TraceUnit.CreatedTime', line 1, position 451."]}}
+--------------------------------------------------------------------------------
+2025/03/15 16:45:18: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070103","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"6001345010208","Created":"2025-03-15T16:35:51.93","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"Accepted","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070103","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T16:35:51.93","CreatedTime":"2025-03-15T16:35:51.93","CreatedDate":"2025-03-15T16:35:51.93","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T16:35:52","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 16:45:27: Error: API responded with BadRequest
+Response: {"Message":"The request is invalid.","ModelState":{"combinedHU.TraceUnit.CreatedTime":["Error converting value 2025/03/15 16:35:51 to type 'System.Nullable`1[System.TimeSpan]'. Path 'TraceUnit.CreatedTime', line 1, position 460."]}}
+--------------------------------------------------------------------------------
+2025/03/15 16:52:16: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070103","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"6001345010208","Created":"2025-03-15T16:35:51.93","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"Accepted","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070103","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T16:35:51.93","CreatedTime":"16:35:51.9300000","CreatedDate":"2025-03-15T16:35:51.93","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T16:35:52","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 16:52:19: Error: API responded with InternalServerError
+Response: {"Message":"An error has occurred.","ExceptionMessage":"An error occurred while updating the entries. See the inner exception for details.","ExceptionType":"System.Data.Entity.Infrastructure.DbUpdateException","StackTrace":"   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()\r\n   at Traceability_Central.Controllers.APIHandlingUnitsController.<PostHandlingUnit>d__5.MoveNext() in C:\\Users\\vdbergwe\\source\\repos\\Traceability_Central\\Controllers\\APIHandlingUnitsController.cs:line 129","InnerException":{"Message":"An error has occurred.","ExceptionMessage":"An error occurred while updating the entries. See the inner exception for details.","ExceptionType":"System.Data.Entity.Core.UpdateException","StackTrace":"   at System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.<UpdateAsync>d__39.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at System.Data.Entity.Core.Objects.ObjectContext.<ExecuteInTransactionAsync>d__156`1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesToStoreAsync>d__154.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<ExecuteAsyncImplementation>d__6`1.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at System.Data.Entity.Core.Objects.ObjectContext.<SaveChangesInternalAsync>d__151.MoveNext()","InnerException":{"Message":"An error has occurred.","ExceptionMessage":"The INSERT permission was denied on the object 'zTraceOut_SSCCUnit', database 'zzSAPIntegrationTSH_WB', schema 'dbo'.","ExceptionType":"System.Data.SqlClient.SqlException","StackTrace":"   at System.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__180_0(Task`1 result)\r\n   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()\r\n   at System.Threading.Tasks.Task.Execute()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)\r\n   at System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.<ExecuteAsync>d__8.MoveNext()\r\n--- End of stack trace from previous location where exception was thrown ---\r\n   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()\r\n   at System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.<UpdateAsync>d__39.MoveNext()"}}}
+--------------------------------------------------------------------------------
+2025/03/15 16:55:14: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070103","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"6001345010208","Created":"2025-03-15T16:35:51.93","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"Accepted","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070103","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T16:35:51.93","CreatedTime":"16:35:51.9300000","CreatedDate":"2025-03-15T16:35:51.93","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T16:35:52","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 16:55:15: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/15 18:06:17: Warning: ZplLable is null. Some label data might be missing.
+--------------------------------------------------------------------------------
+2025/03/15 18:07:17: Warning: ZplLable is null. Some label data might be missing.
+--------------------------------------------------------------------------------
+2025/03/15 18:09:22: Warning: ZplLable is null. Some label data might be missing.
+--------------------------------------------------------------------------------
+2025/03/15 18:10:33: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070127","WERKS":"1110","MATNR":"000000000000010015","ScannedCode":"6001345200418","Created":"2025-03-15T18:09:11.037","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"Registered","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010015","SSCC":"00060013450000070127","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T18:09:11.037","CreatedTime":"18:09:11.0370000","CreatedDate":"2025-03-15T18:09:11.037","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T16:35:52","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 18:10:42: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/15 18:10:50: Warning: ZplLable is null. Some label data might be missing.
+--------------------------------------------------------------------------------
+2025/03/15 18:11:47: Warning: ZplLable is null. Some label data might be missing.
+--------------------------------------------------------------------------------
+2025/03/15 18:12:46: Warning: ZplLable is null. Some label data might be missing.
+--------------------------------------------------------------------------------
+2025/03/15 18:12:47: Warning: ZplLable is null. Some label data might be missing.
+--------------------------------------------------------------------------------
+2025/03/15 19:09:54: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070158","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T19:09:13.81","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"Accepted","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070158","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T19:09:13.81","CreatedTime":"19:09:13.8100000","CreatedDate":"2025-03-15T19:09:13.81","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T19:09:14","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 19:09:55: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/15 19:11:54: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070158","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T19:09:13.81","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"Accepted","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070158","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T19:09:13.81","CreatedTime":"19:09:13.8100000","CreatedDate":"2025-03-15T19:09:13.81","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T19:09:14","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 19:11:54: Success: API responded with OK
+Response: "No changes detected."
+--------------------------------------------------------------------------------
+2025/03/15 19:19:44: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070158","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T19:09:13.81","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"Accepted","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070158","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T19:09:13.81","CreatedTime":"19:09:13.8100000","CreatedDate":"2025-03-15T19:09:13.81","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T19:09:14","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 19:19:44: Success: API responded with OK
+Response: "No changes detected."
+--------------------------------------------------------------------------------
+2025/03/15 19:23:44: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070158","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T19:09:13.81","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"Accepted","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070158","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T19:09:13.81","CreatedTime":"19:09:13.8100000","CreatedDate":"2025-03-15T19:09:13.81","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T19:09:14","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 19:23:56: Success: API responded with OK
+Response: "No changes detected."
+--------------------------------------------------------------------------------
+2025/03/15 19:25:44: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070158","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T19:09:13.81","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"To GUS Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070158","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T19:09:13.81","CreatedTime":"19:09:13.8100000","CreatedDate":"2025-03-15T19:09:13.81","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T19:09:14","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 19:25:44: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/15 19:26:44: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070158","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T19:09:13.81","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"To GUS Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070158","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T19:09:13.81","CreatedTime":"19:09:13.8100000","CreatedDate":"2025-03-15T19:09:13.81","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T19:09:14","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 19:26:44: Success: API responded with OK
+Response: "No changes detected."
+--------------------------------------------------------------------------------
+2025/03/15 19:27:44: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070158","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T19:09:13.81","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"To GUS Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070158","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T19:09:13.81","CreatedTime":"19:09:13.8100000","CreatedDate":"2025-03-15T19:09:13.81","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T19:09:14","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 19:27:44: Success: API responded with OK
+Response: "No changes detected."
+--------------------------------------------------------------------------------
+2025/03/15 19:28:44: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070158","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T19:09:13.81","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"To GUS Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070158","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T19:09:13.81","CreatedTime":"19:09:13.8100000","CreatedDate":"2025-03-15T19:09:13.81","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T19:09:14","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 19:28:44: Success: API responded with OK
+Response: "No changes detected."
+--------------------------------------------------------------------------------
+2025/03/15 19:29:44: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070158","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T19:09:13.81","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"To GUS Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070158","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T19:09:13.81","CreatedTime":"19:09:13.8100000","CreatedDate":"2025-03-15T19:09:13.81","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T19:09:14","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 19:29:44: Success: API responded with OK
+Response: "No changes detected."
+--------------------------------------------------------------------------------
+2025/03/15 19:30:44: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070158","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T19:09:13.81","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"To GUS Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070158","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T19:09:13.81","CreatedTime":"19:09:13.8100000","CreatedDate":"2025-03-15T19:09:13.81","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T19:09:14","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 19:30:44: Success: API responded with OK
+Response: "No changes detected."
+--------------------------------------------------------------------------------
+2025/03/15 19:31:44: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070158","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T19:09:13.81","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"To GUS Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070158","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T19:09:13.81","CreatedTime":"19:09:13.8100000","CreatedDate":"2025-03-15T19:09:13.81","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T19:09:14","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 19:31:44: Success: API responded with OK
+Response: "No changes detected."
+--------------------------------------------------------------------------------
+2025/03/15 19:32:44: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070158","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T19:09:13.81","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"To GUS Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070158","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T19:09:13.81","CreatedTime":"19:09:13.8100000","CreatedDate":"2025-03-15T19:09:13.81","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T19:09:14","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 19:32:44: Success: API responded with OK
+Response: "No changes detected."
+--------------------------------------------------------------------------------
+2025/03/15 19:33:44: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070158","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T19:09:13.81","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"To GUS Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070158","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T19:09:13.81","CreatedTime":"19:09:13.8100000","CreatedDate":"2025-03-15T19:09:13.81","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T19:09:14","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 19:33:44: Success: API responded with OK
+Response: "No changes detected."
+--------------------------------------------------------------------------------
+2025/03/15 19:34:44: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070158","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T19:09:13.81","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"To GUS Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070158","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T19:09:13.81","CreatedTime":"19:09:13.8100000","CreatedDate":"2025-03-15T19:09:13.81","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T19:09:14","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 19:34:44: Success: API responded with OK
+Response: "No changes detected."
+--------------------------------------------------------------------------------
+2025/03/15 19:35:44: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070158","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T19:09:13.81","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"To GUS Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070158","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T19:09:13.81","CreatedTime":"19:09:13.8100000","CreatedDate":"2025-03-15T19:09:13.81","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T19:09:14","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 19:35:44: Success: API responded with OK
+Response: "No changes detected."
+--------------------------------------------------------------------------------
+2025/03/15 19:36:44: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070158","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T19:09:13.81","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"To GUS Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070158","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T19:09:13.81","CreatedTime":"19:09:13.8100000","CreatedDate":"2025-03-15T19:09:13.81","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T19:09:14","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 19:36:45: Success: API responded with OK
+Response: "No changes detected."
+--------------------------------------------------------------------------------
+2025/03/15 19:37:44: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070158","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T19:09:13.81","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"To GUS Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070158","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T19:09:13.81","CreatedTime":"19:09:13.8100000","CreatedDate":"2025-03-15T19:09:13.81","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T19:09:14","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 19:37:44: Success: API responded with OK
+Response: "No changes detected."
+--------------------------------------------------------------------------------
+2025/03/15 19:38:44: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070158","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T19:09:13.81","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"To GUS Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070158","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T19:09:13.81","CreatedTime":"19:09:13.8100000","CreatedDate":"2025-03-15T19:09:13.81","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T19:09:14","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 19:38:44: Success: API responded with OK
+Response: "No changes detected."
+--------------------------------------------------------------------------------
+2025/03/15 19:39:44: Warning: ZplLable is null. Some label data might be missing.
+--------------------------------------------------------------------------------
+2025/03/15 19:40:44: Warning: ZplLable is null. Some label data might be missing.
+--------------------------------------------------------------------------------
+2025/03/15 19:43:44: Warning: ZplLable is null. Some label data might be missing.
+--------------------------------------------------------------------------------
+2025/03/15 19:48:25: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070202","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T19:47:39.807","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"To GUS Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070202","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T19:47:39.807","CreatedTime":"19:47:39.8070000","CreatedDate":"2025-03-15T19:47:39.807","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T19:47:40","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 19:48:32: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/15 19:48:33: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070219","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T19:47:45.93","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"To GUS Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070219","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T19:47:45.93","CreatedTime":"19:47:45.9300000","CreatedDate":"2025-03-15T19:47:45.93","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T19:47:46","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 19:48:34: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/15 19:48:34: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070226","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T19:47:50.223","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"To GUS Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070226","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T19:47:50.223","CreatedTime":"19:47:50.2230000","CreatedDate":"2025-03-15T19:47:50.223","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T19:47:50","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 19:48:35: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/15 19:52:25: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070233","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T19:51:56.337","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"To Warehouse Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070233","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T19:51:56.337","CreatedTime":"19:51:56.3370000","CreatedDate":"2025-03-15T19:51:56.337","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T19:51:56","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 19:52:26: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/15 20:12:30: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070240","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T20:12:11.407","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"To Warehouse Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070240","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T20:12:11.407","CreatedTime":"20:12:11.4070000","CreatedDate":"2025-03-15T20:12:11.407","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T20:12:11","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 20:12:31: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/15 20:36:49: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070257","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T20:36:19.43","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"Accepted","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070257","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T20:36:19.43","CreatedTime":"20:36:19.4300000","CreatedDate":"2025-03-15T20:36:19.43","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T20:36:21","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 20:36:51: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/15 20:39:49: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070264","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T20:39:13.807","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"Accepted","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070264","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T20:39:13.807","CreatedTime":"20:39:13.8070000","CreatedDate":"2025-03-15T20:39:13.807","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T20:39:14","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 20:39:50: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/15 20:54:49: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070257","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T20:36:19.43","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"To Warehouse Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070257","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T20:36:19.43","CreatedTime":"20:36:19.4300000","CreatedDate":"2025-03-15T20:36:19.43","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T20:36:21","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 20:54:50: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/15 20:54:51: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070264","WERKS":"1110","MATNR":"000000000000010006","ScannedCode":"36001345010209","Created":"2025-03-15T20:39:13.807","CreatedBy":"20010945","Batch":"2025074M1110","Horse":"","Status":"To Warehouse Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010006","SSCC":"00060013450000070264","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-15T20:39:13.807","CreatedTime":"20:39:13.8070000","CreatedDate":"2025-03-15T20:39:13.807","CreatedBy":"20010945","ActualWeight":1000000.000,"ScannedGTIN":"36001345010209","Label_GTIN":"36001345010209","Label_Description":"SELATI WHITE SUGAR 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25074","PData_DateTime":"2025-03-15T20:39:14","PData_BatchCode":"2025074M1110","PData_BestBefore":"2028/03/15 00:00:00","PDet_PCode":"000000000000010006","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/15 20:54:51: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/16 12:26:29: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070271","WERKS":"1110","MATNR":"000000000000010021","ScannedCode":"16001008108409","Created":"2025-03-16T12:26:15.7","CreatedBy":"11908","Batch":"2025075M1110","Horse":"","Status":"Accepted","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010021","SSCC":"00060013450000070271","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-16T12:26:15.7","CreatedTime":"12:26:15.7000000","CreatedDate":"2025-03-16T12:26:15.7","CreatedBy":"11908","ActualWeight":1000000.000,"ScannedGTIN":"36001345201072","Label_GTIN":"36001345201072","Label_Description":"SPAR WHITE 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25075","PData_DateTime":"2025-03-16T12:26:16","PData_BatchCode":"2025075M1110","PData_BestBefore":"2028/03/16 00:00:00","PDet_PCode":"000000000000010021","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/16 12:26:31: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/16 12:27:29: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070271","WERKS":"1110","MATNR":"000000000000010021","ScannedCode":"16001008108409","Created":"2025-03-16T12:26:15.7","CreatedBy":"11908","Batch":"2025075M1110","Horse":"","Status":"To Warehouse Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010021","SSCC":"00060013450000070271","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-16T12:26:15.7","CreatedTime":"12:26:15.7000000","CreatedDate":"2025-03-16T12:26:15.7","CreatedBy":"11908","ActualWeight":1000000.000,"ScannedGTIN":"36001345201072","Label_GTIN":"36001345201072","Label_Description":"SPAR WHITE 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25075","PData_DateTime":"2025-03-16T12:26:16","PData_BatchCode":"2025075M1110","PData_BestBefore":"2028/03/16 00:00:00","PDet_PCode":"000000000000010021","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/16 12:27:29: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/16 12:28:29: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070288","WERKS":"1110","MATNR":"000000000000010021","ScannedCode":"36001345201072","Created":"2025-03-16T12:28:10.877","CreatedBy":"11908","Batch":"2025075M1110","Horse":"","Status":"Accepted","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010021","SSCC":"00060013450000070288","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-16T12:28:10.877","CreatedTime":"12:28:10.8770000","CreatedDate":"2025-03-16T12:28:10.877","CreatedBy":"11908","ActualWeight":1000000.000,"ScannedGTIN":"36001345201072","Label_GTIN":"36001345201072","Label_Description":"SPAR WHITE 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25075","PData_DateTime":"2025-03-16T12:28:11","PData_BatchCode":"2025075M1110","PData_BestBefore":"2028/03/16 00:00:00","PDet_PCode":"000000000000010021","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/16 12:28:29: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/16 12:28:30: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070295","WERKS":"1110","MATNR":"000000000000010021","ScannedCode":"36001345201072","Created":"2025-03-16T12:28:15.613","CreatedBy":"11908","Batch":"2025075M1110","Horse":"","Status":"Accepted","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010021","SSCC":"00060013450000070295","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-16T12:28:15.613","CreatedTime":"12:28:15.6130000","CreatedDate":"2025-03-16T12:28:15.613","CreatedBy":"11908","ActualWeight":1000000.000,"ScannedGTIN":"36001345201072","Label_GTIN":"36001345201072","Label_Description":"SPAR WHITE 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25075","PData_DateTime":"2025-03-16T12:28:16","PData_BatchCode":"2025075M1110","PData_BestBefore":"2028/03/16 00:00:00","PDet_PCode":"000000000000010021","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/16 12:28:30: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/16 12:28:31: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070301","WERKS":"1110","MATNR":"000000000000010021","ScannedCode":"36001345201072","Created":"2025-03-16T12:28:20.17","CreatedBy":"11908","Batch":"2025075M1110","Horse":"","Status":"Accepted","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010021","SSCC":"00060013450000070301","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-16T12:28:20.17","CreatedTime":"12:28:20.1700000","CreatedDate":"2025-03-16T12:28:20.17","CreatedBy":"11908","ActualWeight":1000000.000,"ScannedGTIN":"36001345201072","Label_GTIN":"36001345201072","Label_Description":"SPAR WHITE 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25075","PData_DateTime":"2025-03-16T12:28:20","PData_BatchCode":"2025075M1110","PData_BestBefore":"2028/03/16 00:00:00","PDet_PCode":"000000000000010021","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/16 12:28:31: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/16 12:28:32: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070318","WERKS":"1110","MATNR":"000000000000010021","ScannedCode":"36001345201072","Created":"2025-03-16T12:28:24.233","CreatedBy":"11908","Batch":"2025075M1110","Horse":"","Status":"Accepted","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010021","SSCC":"00060013450000070318","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-16T12:28:24.233","CreatedTime":"12:28:24.2330000","CreatedDate":"2025-03-16T12:28:24.233","CreatedBy":"11908","ActualWeight":1000000.000,"ScannedGTIN":"36001345201072","Label_GTIN":"36001345201072","Label_Description":"SPAR WHITE 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25075","PData_DateTime":"2025-03-16T12:28:24","PData_BatchCode":"2025075M1110","PData_BestBefore":"2028/03/16 00:00:00","PDet_PCode":"000000000000010021","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/16 12:28:32: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/16 12:29:29: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070288","WERKS":"1110","MATNR":"000000000000010021","ScannedCode":"36001345201072","Created":"2025-03-16T12:28:10.877","CreatedBy":"11908","Batch":"2025075M1110","Horse":"","Status":"To Warehouse Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010021","SSCC":"00060013450000070288","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-16T12:28:10.877","CreatedTime":"12:28:10.8770000","CreatedDate":"2025-03-16T12:28:10.877","CreatedBy":"11908","ActualWeight":1000000.000,"ScannedGTIN":"36001345201072","Label_GTIN":"36001345201072","Label_Description":"SPAR WHITE 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25075","PData_DateTime":"2025-03-16T12:28:11","PData_BatchCode":"2025075M1110","PData_BestBefore":"2028/03/16 00:00:00","PDet_PCode":"000000000000010021","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/16 12:29:29: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/16 12:29:30: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070295","WERKS":"1110","MATNR":"000000000000010021","ScannedCode":"36001345201072","Created":"2025-03-16T12:28:15.613","CreatedBy":"11908","Batch":"2025075M1110","Horse":"","Status":"To Warehouse Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010021","SSCC":"00060013450000070295","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-16T12:28:15.613","CreatedTime":"12:28:15.6130000","CreatedDate":"2025-03-16T12:28:15.613","CreatedBy":"11908","ActualWeight":1000000.000,"ScannedGTIN":"36001345201072","Label_GTIN":"36001345201072","Label_Description":"SPAR WHITE 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25075","PData_DateTime":"2025-03-16T12:28:16","PData_BatchCode":"2025075M1110","PData_BestBefore":"2028/03/16 00:00:00","PDet_PCode":"000000000000010021","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/16 12:29:30: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/16 12:29:31: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070301","WERKS":"1110","MATNR":"000000000000010021","ScannedCode":"36001345201072","Created":"2025-03-16T12:28:20.17","CreatedBy":"11908","Batch":"2025075M1110","Horse":"","Status":"To Warehouse Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010021","SSCC":"00060013450000070301","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-16T12:28:20.17","CreatedTime":"12:28:20.1700000","CreatedDate":"2025-03-16T12:28:20.17","CreatedBy":"11908","ActualWeight":1000000.000,"ScannedGTIN":"36001345201072","Label_GTIN":"36001345201072","Label_Description":"SPAR WHITE 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25075","PData_DateTime":"2025-03-16T12:28:20","PData_BatchCode":"2025075M1110","PData_BestBefore":"2028/03/16 00:00:00","PDet_PCode":"000000000000010021","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/16 12:29:31: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/16 12:29:32: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070318","WERKS":"1110","MATNR":"000000000000010021","ScannedCode":"36001345201072","Created":"2025-03-16T12:28:24.233","CreatedBy":"11908","Batch":"2025075M1110","Horse":"","Status":"To Warehouse Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010021","SSCC":"00060013450000070318","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-16T12:28:24.233","CreatedTime":"12:28:24.2330000","CreatedDate":"2025-03-16T12:28:24.233","CreatedBy":"11908","ActualWeight":1000000.000,"ScannedGTIN":"36001345201072","Label_GTIN":"36001345201072","Label_Description":"SPAR WHITE 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25075","PData_DateTime":"2025-03-16T12:28:24","PData_BatchCode":"2025075M1110","PData_BestBefore":"2028/03/16 00:00:00","PDet_PCode":"000000000000010021","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/16 12:29:32: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/16 12:29:32: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070325","WERKS":"1110","MATNR":"000000000000010021","ScannedCode":"36001345201072","Created":"2025-03-16T12:28:28.923","CreatedBy":"11908","Batch":"2025075M1110","Horse":"","Status":"To Warehouse Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010021","SSCC":"00060013450000070325","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-16T12:28:28.923","CreatedTime":"12:28:28.9230000","CreatedDate":"2025-03-16T12:28:28.923","CreatedBy":"11908","ActualWeight":1000000.000,"ScannedGTIN":"36001345201072","Label_GTIN":"36001345201072","Label_Description":"SPAR WHITE 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25075","PData_DateTime":"2025-03-16T12:28:29","PData_BatchCode":"2025075M1110","PData_BestBefore":"2028/03/16 00:00:00","PDet_PCode":"000000000000010021","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/16 12:29:33: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------
+2025/03/16 12:29:34: Sending JSON:
+{"HandlingUnit":{"SSCC":"00060013450000070332","WERKS":"1110","MATNR":"000000000000010021","ScannedCode":"36001345201072","Created":"2025-03-16T12:28:32.957","CreatedBy":"11908","Batch":"2025075M1110","Horse":"","Status":"To Warehouse Malelane","ChildServer":"TSBLT02410"},"TraceUnit":{"WERKS":"1110","MATNR":"000000000000010021","SSCC":"00060013450000070332","WaypointId":1,"Waypoint":"TSBLT02410","Created":"2025-03-16T12:28:32.957","CreatedTime":"12:28:32.9570000","CreatedDate":"2025-03-16T12:28:32.957","CreatedBy":"11908","ActualWeight":1000000.000,"ScannedGTIN":"36001345201072","Label_GTIN":"36001345201072","Label_Description":"SPAR WHITE 10x2.5KG 40xP","Label_Country":"South Africa","PData_DateCode":"25075","PData_DateTime":"2025-03-16T12:28:33","PData_BatchCode":"2025075M1110","PData_BestBefore":"2028/03/16 00:00:00","PDet_PCode":"000000000000010021","PDet_OrdUnits":40,"PDet_ConsUnits":400,"PDet_NetWt":1000000.000,"VoidedX":null,"VoidedReason":null,"AcceptedX":null}}
+--------------------------------------------------------------------------------
+2025/03/16 12:29:34: Success: API responded with OK
+Response: "Record updated/created successfully."
+--------------------------------------------------------------------------------

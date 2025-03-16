@@ -1,0 +1,324 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="OMD_DatawarehouseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Handling_Units">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SSCC" Type="nvarchar" MaxLength="50" />
+          <Property Name="Product" Type="int" />
+          <Property Name="Created" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="NumberBank" Type="int" />
+          <Property Name="Device" Type="nvarchar" MaxLength="50" />
+          <Property Name="Batch" Type="int" />
+          <Property Name="ScannedCode" Type="nvarchar(max)" />
+          <Property Name="Horse" Type="nvarchar(max)" />
+          <Property Name="Trailer" Type="nvarchar(max)" />
+          <Property Name="Berth" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Production_Batches">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="Shift" Type="int" />
+          <Property Name="BatchDate" Type="datetime" />
+          <Property Name="BatchCreated" Type="datetime" />
+          <Property Name="BatchEnded" Type="datetime" />
+          <Property Name="Plant" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="150" />
+          <Property Name="PLU" Type="int" />
+          <Property Name="Type" Type="nvarchar" MaxLength="50" />
+          <Property Name="Packaging" Type="nvarchar" MaxLength="50" />
+          <Property Name="ConsumerUnits" Type="int" />
+          <Property Name="SalesUnits" Type="int" />
+          <Property Name="TargetWeight" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="UOM" Type="nvarchar" MaxLength="50" />
+          <Property Name="TareWeight" Type="nvarchar" MaxLength="50" />
+          <Property Name="ConsumerBarcode" Type="nvarchar" MaxLength="50" />
+          <Property Name="SalesUnitBarcode" Type="nvarchar" MaxLength="50" />
+          <Property Name="Commodity" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProducedBy" Type="nvarchar" MaxLength="250" />
+          <Property Name="Status" Type="nvarchar" MaxLength="50" />
+          <Property Name="HUTargetWeight" Type="numeric" Precision="18" Scale="2" />
+          <Property Name="ExpiryDays" Type="int" />
+          <Property Name="Labels" Type="int" />
+          <Property Name="QCSampleSize" Type="int" />
+          <Property Name="GTin_Con" Type="nchar" MaxLength="18" />
+          <Property Name="GTIN_HU" Type="nchar" MaxLength="18" />
+          <Property Name="GTIN_Level1" Type="nchar" MaxLength="18" />
+          <Property Name="GTIN_Level2" Type="nchar" MaxLength="18" />
+          <Property Name="ConsPerHUNum" Type="numeric" Precision="8" Scale="3" />
+          <Property Name="ConsPerHUInt" Type="int" />
+          <Property Name="SAPDeletionFlagX" Type="nchar" MaxLength="1" />
+          <Property Name="WERKS" Type="nchar" MaxLength="4" />
+          <Property Name="MATNR" Type="nchar" MaxLength="18" />
+          <Property Name="GTIN_SalesUOM" Type="nchar" MaxLength="18" />
+        </EntityType>
+        <Association Name="FK_Handling_Units_Production_Batches">
+          <End Role="Production_Batches" Type="Self.Production_Batches" Multiplicity="0..1" />
+          <End Role="Handling_Units" Type="Self.Handling_Units" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Production_Batches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Handling_Units">
+              <PropertyRef Name="Batch" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Handling_Units_Products1">
+          <End Role="Products" Type="Self.Products" Multiplicity="0..1" />
+          <End Role="Handling_Units" Type="Self.Handling_Units" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Handling_Units">
+              <PropertyRef Name="Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OMD_DatawarehouseModelStoreContainer">
+          <EntitySet Name="Handling_Units" EntityType="Self.Handling_Units" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Production_Batches" EntityType="Self.Production_Batches" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Handling_Units_Production_Batches" Association="Self.FK_Handling_Units_Production_Batches">
+            <End Role="Production_Batches" EntitySet="Production_Batches" />
+            <End Role="Handling_Units" EntitySet="Handling_Units" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Handling_Units_Products1" Association="Self.FK_Handling_Units_Products1">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Handling_Units" EntitySet="Handling_Units" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OMD_DatawarehouseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Handling_Units">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SSCC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Product" Type="Int32" />
+          <Property Name="Created" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NumberBank" Type="Int32" />
+          <Property Name="Device" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Batch" Type="Int32" />
+          <Property Name="ScannedCode" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Horse" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Trailer" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Berth" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Production_Batches" Relationship="Self.FK_Handling_Units_Production_Batches" FromRole="Handling_Units" ToRole="Production_Batches" />
+          <NavigationProperty Name="Product1" Relationship="Self.FK_Handling_Units_Products1" FromRole="Handling_Units" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Production_Batches">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Shift" Type="Int32" />
+          <Property Name="BatchDate" Type="DateTime" Precision="3" />
+          <Property Name="BatchCreated" Type="DateTime" Precision="3" />
+          <Property Name="BatchEnded" Type="DateTime" Precision="3" />
+          <Property Name="Plant" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Handling_Units" Relationship="Self.FK_Handling_Units_Production_Batches" FromRole="Production_Batches" ToRole="Handling_Units" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="PLU" Type="Int32" />
+          <Property Name="Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Packaging" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ConsumerUnits" Type="Int32" />
+          <Property Name="SalesUnits" Type="Int32" />
+          <Property Name="TargetWeight" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="UOM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TareWeight" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ConsumerBarcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SalesUnitBarcode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Commodity" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProducedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HUTargetWeight" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ExpiryDays" Type="Int32" />
+          <Property Name="Labels" Type="Int32" />
+          <Property Name="QCSampleSize" Type="Int32" />
+          <Property Name="GTin_Con" Type="String" MaxLength="18" FixedLength="true" Unicode="true" />
+          <Property Name="GTIN_HU" Type="String" MaxLength="18" FixedLength="true" Unicode="true" />
+          <Property Name="GTIN_Level1" Type="String" MaxLength="18" FixedLength="true" Unicode="true" />
+          <Property Name="GTIN_Level2" Type="String" MaxLength="18" FixedLength="true" Unicode="true" />
+          <Property Name="ConsPerHUNum" Type="Decimal" Precision="8" Scale="3" />
+          <Property Name="ConsPerHUInt" Type="Int32" />
+          <Property Name="SAPDeletionFlagX" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="WERKS" Type="String" MaxLength="4" FixedLength="true" Unicode="true" />
+          <Property Name="MATNR" Type="String" MaxLength="18" FixedLength="true" Unicode="true" />
+          <Property Name="GTIN_SalesUOM" Type="String" MaxLength="18" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Handling_Units" Relationship="Self.FK_Handling_Units_Products1" FromRole="Products" ToRole="Handling_Units" />
+        </EntityType>
+        <Association Name="FK_Handling_Units_Production_Batches">
+          <End Role="Production_Batches" Type="Self.Production_Batches" Multiplicity="0..1" />
+          <End Role="Handling_Units" Type="Self.Handling_Units" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Production_Batches">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Handling_Units">
+              <PropertyRef Name="Batch" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Handling_Units_Products1">
+          <End Role="Products" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="Handling_Units" Type="Self.Handling_Units" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Handling_Units">
+              <PropertyRef Name="Product" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OMD_DatawarehouseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Handling_Units" EntityType="Self.Handling_Units" />
+          <EntitySet Name="Production_Batches" EntityType="Self.Production_Batches" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <AssociationSet Name="FK_Handling_Units_Production_Batches" Association="Self.FK_Handling_Units_Production_Batches">
+            <End Role="Production_Batches" EntitySet="Production_Batches" />
+            <End Role="Handling_Units" EntitySet="Handling_Units" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Handling_Units_Products1" Association="Self.FK_Handling_Units_Products1">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Handling_Units" EntitySet="Handling_Units" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OMD_DatawarehouseModelStoreContainer" CdmEntityContainer="OMD_DatawarehouseEntities">
+          <EntitySetMapping Name="Handling_Units">
+            <EntityTypeMapping TypeName="OMD_DatawarehouseModel.Handling_Units">
+              <MappingFragment StoreEntitySet="Handling_Units">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SSCC" ColumnName="SSCC" />
+                <ScalarProperty Name="Product" ColumnName="Product" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="NumberBank" ColumnName="NumberBank" />
+                <ScalarProperty Name="Device" ColumnName="Device" />
+                <ScalarProperty Name="Batch" ColumnName="Batch" />
+                <ScalarProperty Name="ScannedCode" ColumnName="ScannedCode" />
+                <ScalarProperty Name="Horse" ColumnName="Horse" />
+                <ScalarProperty Name="Trailer" ColumnName="Trailer" />
+                <ScalarProperty Name="Berth" ColumnName="Berth" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Production_Batches">
+            <EntityTypeMapping TypeName="OMD_DatawarehouseModel.Production_Batches">
+              <MappingFragment StoreEntitySet="Production_Batches">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Shift" ColumnName="Shift" />
+                <ScalarProperty Name="BatchDate" ColumnName="BatchDate" />
+                <ScalarProperty Name="BatchCreated" ColumnName="BatchCreated" />
+                <ScalarProperty Name="BatchEnded" ColumnName="BatchEnded" />
+                <ScalarProperty Name="Plant" ColumnName="Plant" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="OMD_DatawarehouseModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="PLU" ColumnName="PLU" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Packaging" ColumnName="Packaging" />
+                <ScalarProperty Name="ConsumerUnits" ColumnName="ConsumerUnits" />
+                <ScalarProperty Name="SalesUnits" ColumnName="SalesUnits" />
+                <ScalarProperty Name="TargetWeight" ColumnName="TargetWeight" />
+                <ScalarProperty Name="UOM" ColumnName="UOM" />
+                <ScalarProperty Name="TareWeight" ColumnName="TareWeight" />
+                <ScalarProperty Name="ConsumerBarcode" ColumnName="ConsumerBarcode" />
+                <ScalarProperty Name="SalesUnitBarcode" ColumnName="SalesUnitBarcode" />
+                <ScalarProperty Name="Commodity" ColumnName="Commodity" />
+                <ScalarProperty Name="ProducedBy" ColumnName="ProducedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="HUTargetWeight" ColumnName="HUTargetWeight" />
+                <ScalarProperty Name="ExpiryDays" ColumnName="ExpiryDays" />
+                <ScalarProperty Name="Labels" ColumnName="Labels" />
+                <ScalarProperty Name="QCSampleSize" ColumnName="QCSampleSize" />
+                <ScalarProperty Name="GTin_Con" ColumnName="GTin_Con" />
+                <ScalarProperty Name="GTIN_HU" ColumnName="GTIN_HU" />
+                <ScalarProperty Name="GTIN_Level1" ColumnName="GTIN_Level1" />
+                <ScalarProperty Name="GTIN_Level2" ColumnName="GTIN_Level2" />
+                <ScalarProperty Name="ConsPerHUNum" ColumnName="ConsPerHUNum" />
+                <ScalarProperty Name="ConsPerHUInt" ColumnName="ConsPerHUInt" />
+                <ScalarProperty Name="SAPDeletionFlagX" ColumnName="SAPDeletionFlagX" />
+                <ScalarProperty Name="WERKS" ColumnName="WERKS" />
+                <ScalarProperty Name="MATNR" ColumnName="MATNR" />
+                <ScalarProperty Name="GTIN_SalesUOM" ColumnName="GTIN_SalesUOM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

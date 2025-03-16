@@ -1,0 +1,33 @@
+﻿@model TraceabilityV3.SAPMaterial
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 class="details-title">Details</h2>
+
+<div class="details-container">
+    <h4>SAP Material</h4>
+    <hr />
+    <div class="details-grid">
+        @foreach (var property in Model.GetType().GetProperties())
+        {
+            var value = property.GetValue(Model);
+            var displayValue = value != null ? value.ToString() : "Not Specified";
+            var isEmpty = string.IsNullOrWhiteSpace(displayValue) || displayValue == "Not Specified";
+            <div class="details-item @(isEmpty ? "details-empty" : "")">
+                <span class="details-label">
+                    @Html.DisplayName(property.Name)
+                </span>
+                <span class="details-value">
+                    @Html.Raw(displayValue)
+                </span>
+            </div>
+        }
+    </div>
+</div>
+
+<div class="details-actions">
+    @Html.ActionLink("Edit", "Edit", new { SYSID = Model.SYSID, MANDT = Model.MANDT, WERKS = Model.WERKS, MATNR = Model.MATNR }, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-secondary" })
+</div>

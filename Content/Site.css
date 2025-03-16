@@ -1,0 +1,394 @@
+﻿/* Set padding to keep content from hitting the edges */
+.body-content {
+    margin-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+/* Custom CSS Section*/
+
+/* Register Form Styling */
+
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Space between image and form */
+}
+
+.register-image {
+    max-width: 150px; /* Adjust image size */
+}
+
+.register-form {
+    width: 500px;
+    max-width: 800px; /* Adjust form width */
+}
+
+img.img-responsive {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Login Screen Styling */
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* Space between image and form */
+}
+
+.login-image {
+    max-width: 150px; /* Adjust image size */
+}
+
+.login-form {
+    width: 500px;
+    max-width: 800px; /* Adjust form width */
+}
+
+
+/* Pagination Styling */
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+    .pagination li {
+        margin: 0 5px;
+    }
+
+        .pagination li a {
+            padding: 8px 12px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            text-decoration: none;
+            color: #333;
+        }
+
+            .pagination li a:hover {
+                background-color: #ddd;
+            }
+
+    .pagination .active a {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .pagination .disabled a {
+        background-color: #f0f0f0;
+        color: #ccc;
+    }
+
+/* Remove default link styling */
+
+th a {
+    text-decoration: none; 
+    color: dodgerblue;
+}
+
+/* Targeting inputs within the specific table row */
+table input::placeholder {
+    font-size: 12px; /* Adjust the size as needed */
+}
+
+/* Targeting rows in all tables*/
+
+table tr{
+    font-size: 12px;
+}
+
+
+/* Container for results per page */
+.results-per-page-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+/* Label for results per page dropdown */
+    .results-per-page-container .results-per-page-label {
+        margin-right: 5px;
+        font-size: 0.9rem;
+        color: #555;
+    }
+
+/* Dropdown for results per page */
+    .results-per-page-container .results-per-page-select {
+        width: auto;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 0.9rem;
+    }
+
+/* Button for search */
+    .results-per-page-container .results-per-page-button {
+        margin-left: 5px;
+        padding: 5px 10px;
+        font-size: 0.9rem;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+        .results-per-page-container .results-per-page-button:hover {
+            background-color: #0056b3;
+        }
+
+/* Container to hold both label and input together */
+.date-time-container {
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+}
+
+    /* Ensure each label/input pair aligns properly */
+    .date-time-container div {
+        width: 98%; 
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+    }
+
+    /* Label styling to ensure it is centered above the input */
+    .date-time-container label {
+        font-size: 10px; 
+        margin-bottom: 3px; 
+        text-align: center; 
+        width: 100%; 
+    }
+
+    /* Input styling to ensure it fits and is readable */
+    .date-time-container input {
+        width: 100%; 
+        font-size: 10px; 
+        padding: 3px; 
+        text-align: center; 
+    }
+
+/* Styling for Details Page */
+.details-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+.details-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+    .details-container h4 {
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #555;
+    }
+
+.details-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 3rem;
+}
+
+.details-item {
+    flex: 1 1 calc(50% - 3rem); /* 50% width, minus gap */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.details-label {
+    flex: 0 0 40%; /* Fixed width for labels */
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+}
+
+.details-value {
+    flex: 1; /* Flexible width for values */
+    color: #444;
+    text-align: left;
+    word-wrap: break-word;
+}
+
+.details-empty .details-value {
+    color: #999;
+    font-style: italic;
+}
+
+.details-actions {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+    .details-actions .btn {
+        padding: 0.5rem 1.5rem;
+        margin: 0 0.5rem;
+        text-decoration: none;
+        color: #fff;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+    }
+
+    .details-actions .btn-primary {
+        background-color: #007bff;
+    }
+
+        .details-actions .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .details-actions .btn-secondary {
+        background-color: #6c757d;
+    }
+
+        .details-actions .btn-secondary:hover {
+            background-color: #545b62;
+        }
+
+/* Edit Page Styling */
+.edit-page-container {
+    max-width: 900px;
+    margin: 20px auto; /* Align with other pages */
+    padding: 15px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+    .edit-page-container h4 {
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    .edit-page-container .form-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem 2rem;
+    }
+
+    .edit-page-container .form-group {
+        flex: 1 1 calc(50% - 2rem); /* 50% width minus gap */
+        display: flex;
+        flex-direction: column;
+    }
+
+        .edit-page-container .form-group label {
+            font-size: 0.9rem;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .edit-page-container .form-group input,
+        .edit-page-container .form-group select,
+        .edit-page-container .form-group textarea {
+            padding: 8px;
+            font-size: 0.9rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100%;
+            max-width: 280px; /* Consistent with global input styles */
+            transition: border-color 0.3s ease;
+        }
+
+            .edit-page-container .form-group input:focus,
+            .edit-page-container .form-group select:focus,
+            .edit-page-container .form-group textarea:focus {
+                border-color: #007bff;
+                outline: none;
+                box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+            }
+
+    .edit-page-container .form-actions {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        gap: 10px;
+    }
+
+    .edit-page-container .btn {
+        padding: 8px 15px;
+        font-size: 0.9rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.2s ease-in-out;
+    }
+
+    .edit-page-container .btn-primary {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+        .edit-page-container .btn-primary:hover {
+            background-color: #0056b3;
+        }
+
+    .edit-page-container .btn-secondary {
+        background-color: #6c757d;
+        color: #fff;
+    }
+
+        .edit-page-container .btn-secondary:hover {
+            background-color: #545b62;
+        }
+
+/* Make sure nested menu is hidden by default */
+.dropdown-menu .dropdown-submenu .dropdown-menu {
+    display: none;
+    position: absolute;
+    left: 100%; /* Position to the right of the parent menu */
+    top: 0;
+}
+
+/* Show nested dropdown when hovering over the parent menu item */
+.dropdown-menu .dropdown-submenu:hover .dropdown-menu {
+    display: block;
+}
+
+/* Add some spacing to the right of the parent menu item for nested dropdown */
+.dropdown-submenu {
+    position: relative; /* Relative positioning so the nested menu can be positioned absolutely */
+}
+
+/* Optional: Style the dropdown toggle arrow */
+.dropdown-menu .dropdown-submenu > a::after {
+    content: ""; /* Add an arrow or indicator */
+    margin-left: 5px;
+}

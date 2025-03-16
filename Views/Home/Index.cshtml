@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traceability Portal</title>
+    <style>
+        .homepage-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; /* Spacing between the image and text */
+        }
+
+        .homepage-image {
+            max-width: 150px; /* Adjust image size */
+            height: auto; /* Maintain aspect ratio */
+        }
+
+        .homepage-text {
+            width: 400px; /* Fixed width for the paragraph */
+            margin: 0; /* Remove default margin */
+        }
+    </style>
+</head>
+
+<div class="homepage-content">
+    <img src="@Url.Content("~/content/images/RCL_Spoon.png")" alt="RCL Foods Sugar and Milling Spoon" class="homepage-image" />
+    <p class="homepage-text">This portal enables full traceability of sugar handling units, providing tools for tracking, identifying, and adjusting stock items and handling units throughout their lifecycle. Each unit is assigned a unique identifier, ensuring seamless monitoring from inception to delivery. The system offers stakeholders a transparent and reliable method to manage handling units.</p>
+</div>

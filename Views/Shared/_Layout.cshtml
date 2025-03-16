@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - RCL Sugar Traceability</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+        <div class="container">
+            @Html.ActionLink("RCL Traceability", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="handlingUnitsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Handling Units
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="handlingUnitsDropdown">
+                            <li>@Html.ActionLink("Search", "Index", "HandlingUnits", new { area = "" }, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Import Live", "ImportHandlingUnits", "HandlingUnits", new { area = "" }, new { @class = "dropdown-item" })</li>
+                            @*<li><a href="/HandlingUnits/Export" class="dropdown-item">Export</a></li>*@
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="SapMaterialsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            SAP Materials
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="SapMaterialsDropdown">
+                            <li>@Html.ActionLink("Search", "Index", "SAPMaterials", new { area = "" }, new { @class = "dropdown-item" })</li>
+                            <li>@Html.ActionLink("Import From SAP", "ImportSAPMaterials", "SAPMaterials", new { area = "" }, new { @class = "dropdown-item" })</li>
+                            @*<li><a href="/HandlingUnits/Export" class="dropdown-item">Export</a></li>*@
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="OperatorsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            System
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="OperatorsDropdown">
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">Operators</a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Search", "Index", "Operators", new { area = "" }, new { @class = "dropdown-item" })</li>
+                                    <li>@Html.ActionLink("Create", "Create", "Operators", new { area = "" }, new { @class = "dropdown-item" })</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">Devices</a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Search", "Index", "Devices", new { area = "" }, new { @class = "dropdown-item" })</li>
+                                    <li>@Html.ActionLink("Create", "Create", "Devices", new { area = "" }, new { @class = "dropdown-item" })</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">WayPoints</a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Search", "Index", "WayPoints", new { area = "" }, new { @class = "dropdown-item" })</li>
+                                    <li>@Html.ActionLink("Create", "Create", "WayPoints", new { area = "" }, new { @class = "dropdown-item" })</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">Deployments</a>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Option 1", "Action1", "Controller", new { area = "" }, new { @class = "dropdown-item" })</li>
+                                    <li>@Html.ActionLink("Option 2", "Action2", "Controller", new { area = "" }, new { @class = "dropdown-item" })</li>
+                                </ul>
+                            </li>  
+                        </ul>
+                    </li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - RCL Foods Sugar and Milling (Sugar Division)</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,98 @@
+﻿@model TraceabilityV3.Waypoint
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Waypoint</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UOM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UOM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LoadCapcity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LoadCapcity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HasPrinter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HasPrinter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HasScanner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HasScanner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ToWaypoint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ToWaypoint)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VariableWaypoint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VariableWaypoint)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

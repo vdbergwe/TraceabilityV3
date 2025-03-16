@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="zzSAPIntegrationTSH_WBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="zTraceIn_SAPMaterials">
+          <Key>
+            <PropertyRef Name="SYSID" />
+            <PropertyRef Name="MANDT" />
+            <PropertyRef Name="WERKS" />
+            <PropertyRef Name="MATNR" />
+          </Key>
+          <Property Name="SYSID" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="MANDT" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="WERKS" Type="nvarchar" MaxLength="4" Nullable="false" />
+          <Property Name="MATNR" Type="nvarchar" MaxLength="18" Nullable="false" />
+          <Property Name="MAKTX" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="GTIN_CON" Type="nvarchar" MaxLength="18" Nullable="false" />
+          <Property Name="GTIN_HU" Type="nvarchar" MaxLength="18" Nullable="false" />
+          <Property Name="GTIN_Level1" Type="nvarchar" MaxLength="18" Nullable="false" />
+          <Property Name="GTIN_Level2" Type="nvarchar" MaxLength="18" Nullable="false" />
+          <Property Name="NetWt_CON" Type="numeric" Precision="13" Scale="3" Nullable="false" />
+          <Property Name="NetWt_HU" Type="numeric" Precision="13" Scale="3" Nullable="false" />
+          <Property Name="NetWt_Level1" Type="numeric" Precision="13" Scale="3" />
+          <Property Name="NetWt_Level2" Type="numeric" Precision="13" Scale="3" />
+          <Property Name="TareWt_CON" Type="numeric" Precision="13" Scale="3" />
+          <Property Name="TareWt_HU" Type="numeric" Precision="13" Scale="3" />
+          <Property Name="TareWt_Level1" Type="numeric" Precision="13" Scale="3" />
+          <Property Name="TareWt_Level2" Type="numeric" Precision="13" Scale="3" />
+          <Property Name="HUQty_CON" Type="numeric" Precision="13" Scale="3" Nullable="false" />
+          <Property Name="HUQty_Level1" Type="numeric" Precision="13" Scale="3" Nullable="false" />
+          <Property Name="HUQty_Level2" Type="numeric" Precision="13" Scale="3" Nullable="false" />
+          <Property Name="SAPUOM_CON" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="SAPUOM_HU" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="SAPUOM_Level1" Type="nvarchar" MaxLength="3" />
+          <Property Name="SAPUOM_Level2" Type="nvarchar" MaxLength="3" />
+          <Property Name="SAPUOM_Base" Type="nvarchar" MaxLength="3" />
+          <Property Name="SAPUOM_Sales" Type="nvarchar" MaxLength="3" />
+          <Property Name="QCUOM" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="WtCatUOM" Type="nvarchar" MaxLength="3" Nullable="false" />
+          <Property Name="ProductType" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="ProductWtCat" Type="numeric" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="BulkFlag" Type="nvarchar" MaxLength="1" />
+          <Property Name="DateFirstAdded" Type="date" />
+          <Property Name="DateLastUpdated" Type="date" />
+          <Property Name="ReadStatus" Type="numeric" Precision="1" Scale="0" />
+          <Property Name="Retired" Type="nchar" MaxLength="1" />
+          <Property Name="RetirementDate" Type="date" />
+          <Property Name="GTIN_SalesUOM" Type="nchar" MaxLength="18" />
+        </EntityType>
+        <EntityContainer Name="zzSAPIntegrationTSH_WBModelStoreContainer">
+          <EntitySet Name="zTraceIn_SAPMaterials" EntityType="Self.zTraceIn_SAPMaterials" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="zzSAPIntegrationTSH_WBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="zTraceIn_SAPMaterials">
+          <Key>
+            <PropertyRef Name="SYSID" />
+            <PropertyRef Name="MANDT" />
+            <PropertyRef Name="WERKS" />
+            <PropertyRef Name="MATNR" />
+          </Key>
+          <Property Name="SYSID" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MANDT" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WERKS" Type="String" MaxLength="4" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MATNR" Type="String" MaxLength="18" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MAKTX" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GTIN_CON" Type="String" MaxLength="18" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GTIN_HU" Type="String" MaxLength="18" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GTIN_Level1" Type="String" MaxLength="18" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="GTIN_Level2" Type="String" MaxLength="18" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NetWt_CON" Type="Decimal" Precision="13" Scale="3" Nullable="false" />
+          <Property Name="NetWt_HU" Type="Decimal" Precision="13" Scale="3" Nullable="false" />
+          <Property Name="NetWt_Level1" Type="Decimal" Precision="13" Scale="3" />
+          <Property Name="NetWt_Level2" Type="Decimal" Precision="13" Scale="3" />
+          <Property Name="TareWt_CON" Type="Decimal" Precision="13" Scale="3" />
+          <Property Name="TareWt_HU" Type="Decimal" Precision="13" Scale="3" />
+          <Property Name="TareWt_Level1" Type="Decimal" Precision="13" Scale="3" />
+          <Property Name="TareWt_Level2" Type="Decimal" Precision="13" Scale="3" />
+          <Property Name="HUQty_CON" Type="Decimal" Precision="13" Scale="3" Nullable="false" />
+          <Property Name="HUQty_Level1" Type="Decimal" Precision="13" Scale="3" Nullable="false" />
+          <Property Name="HUQty_Level2" Type="Decimal" Precision="13" Scale="3" Nullable="false" />
+          <Property Name="SAPUOM_CON" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SAPUOM_HU" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SAPUOM_Level1" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="SAPUOM_Level2" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="SAPUOM_Base" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="SAPUOM_Sales" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="QCUOM" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WtCatUOM" Type="String" MaxLength="3" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductType" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ProductWtCat" Type="Decimal" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="BulkFlag" Type="String" MaxLength="1" FixedLength="false" Unicode="true" />
+          <Property Name="DateFirstAdded" Type="DateTime" Precision="0" />
+          <Property Name="DateLastUpdated" Type="DateTime" Precision="0" />
+          <Property Name="ReadStatus" Type="Decimal" Precision="1" Scale="0" />
+          <Property Name="Retired" Type="String" MaxLength="1" FixedLength="true" Unicode="true" />
+          <Property Name="RetirementDate" Type="DateTime" Precision="0" />
+          <Property Name="GTIN_SalesUOM" Type="String" MaxLength="18" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="zzSAPIntegrationTSH_WBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="zTraceIn_SAPMaterials" EntityType="Self.zTraceIn_SAPMaterials" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="zzSAPIntegrationTSH_WBModelStoreContainer" CdmEntityContainer="zzSAPIntegrationTSH_WBEntities">
+          <EntitySetMapping Name="zTraceIn_SAPMaterials">
+            <EntityTypeMapping TypeName="zzSAPIntegrationTSH_WBModel.zTraceIn_SAPMaterials">
+              <MappingFragment StoreEntitySet="zTraceIn_SAPMaterials">
+                <ScalarProperty Name="SYSID" ColumnName="SYSID" />
+                <ScalarProperty Name="MANDT" ColumnName="MANDT" />
+                <ScalarProperty Name="WERKS" ColumnName="WERKS" />
+                <ScalarProperty Name="MATNR" ColumnName="MATNR" />
+                <ScalarProperty Name="MAKTX" ColumnName="MAKTX" />
+                <ScalarProperty Name="GTIN_CON" ColumnName="GTIN_CON" />
+                <ScalarProperty Name="GTIN_HU" ColumnName="GTIN_HU" />
+                <ScalarProperty Name="GTIN_Level1" ColumnName="GTIN_Level1" />
+                <ScalarProperty Name="GTIN_Level2" ColumnName="GTIN_Level2" />
+                <ScalarProperty Name="NetWt_CON" ColumnName="NetWt_CON" />
+                <ScalarProperty Name="NetWt_HU" ColumnName="NetWt_HU" />
+                <ScalarProperty Name="NetWt_Level1" ColumnName="NetWt_Level1" />
+                <ScalarProperty Name="NetWt_Level2" ColumnName="NetWt_Level2" />
+                <ScalarProperty Name="TareWt_CON" ColumnName="TareWt_CON" />
+                <ScalarProperty Name="TareWt_HU" ColumnName="TareWt_HU" />
+                <ScalarProperty Name="TareWt_Level1" ColumnName="TareWt_Level1" />
+                <ScalarProperty Name="TareWt_Level2" ColumnName="TareWt_Level2" />
+                <ScalarProperty Name="HUQty_CON" ColumnName="HUQty_CON" />
+                <ScalarProperty Name="HUQty_Level1" ColumnName="HUQty_Level1" />
+                <ScalarProperty Name="HUQty_Level2" ColumnName="HUQty_Level2" />
+                <ScalarProperty Name="SAPUOM_CON" ColumnName="SAPUOM_CON" />
+                <ScalarProperty Name="SAPUOM_HU" ColumnName="SAPUOM_HU" />
+                <ScalarProperty Name="SAPUOM_Level1" ColumnName="SAPUOM_Level1" />
+                <ScalarProperty Name="SAPUOM_Level2" ColumnName="SAPUOM_Level2" />
+                <ScalarProperty Name="SAPUOM_Base" ColumnName="SAPUOM_Base" />
+                <ScalarProperty Name="SAPUOM_Sales" ColumnName="SAPUOM_Sales" />
+                <ScalarProperty Name="QCUOM" ColumnName="QCUOM" />
+                <ScalarProperty Name="WtCatUOM" ColumnName="WtCatUOM" />
+                <ScalarProperty Name="ProductType" ColumnName="ProductType" />
+                <ScalarProperty Name="ProductWtCat" ColumnName="ProductWtCat" />
+                <ScalarProperty Name="BulkFlag" ColumnName="BulkFlag" />
+                <ScalarProperty Name="DateFirstAdded" ColumnName="DateFirstAdded" />
+                <ScalarProperty Name="DateLastUpdated" ColumnName="DateLastUpdated" />
+                <ScalarProperty Name="ReadStatus" ColumnName="ReadStatus" />
+                <ScalarProperty Name="Retired" ColumnName="Retired" />
+                <ScalarProperty Name="RetirementDate" ColumnName="RetirementDate" />
+                <ScalarProperty Name="GTIN_SalesUOM" ColumnName="GTIN_SalesUOM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

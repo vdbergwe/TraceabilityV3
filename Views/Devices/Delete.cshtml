@@ -1,0 +1,240 @@
+﻿@model TraceabilityV3.Device
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Device</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MAC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MAC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SwitchPort)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SwitchPort)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Switch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Switch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SerialNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SerialNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HardwareVersion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HardwareVersion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SoftwareVersion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoftwareVersion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StorageInformation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StorageInformation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NetworkInformation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NetworkInformation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LocalWebServerUrlPORT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LocalWebServerUrlPORT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequiresUpdate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequiresUpdate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastCheckin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastCheckin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LastReportedStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LastReportedStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NetworkConfigIP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NetworkConfigIP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NetworkConfigSubnet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NetworkConfigSubnet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NetworkConfigGateway)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NetworkConfigGateway)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NetworkConfigDNS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NetworkConfigDNS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LockedOut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LockedOut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LockedOutBy)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LockedOutBy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LockedOutOn)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LockedOutOn)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SecurityKey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SecurityKey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentOperatorId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentOperatorId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RequiresSupport)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RequiresSupport)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Waypoint)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Waypoint)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
