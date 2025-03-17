@@ -1,0 +1,268 @@
+﻿@using TraceabilityV3.Models
+@model IEnumerable<HandlingUnitsViewModel>
+
+@{
+    ViewData["Title"] = "Handling Units";
+    ViewBag.ViewIcon = "fa fa-gear";
+    ViewBag.ViewTitle = "Handling Units";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <script src="https://kit.fontawesome.com/679062be7c.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="~/Content/Sitev2.css">
+    <script src="https://cdn.tiny.cloud/1/s25uxpc05oca1wcsqix1e5ipt85urutblb6kqpbxa050eypb/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea'
+        });
+    </script>
+    <style>
+        body {
+            overflow-y: auto;
+            height: 400px;
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+        }
+
+        .header-container {
+            background-color: #343a40;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 4px solid #007bff;
+        }
+
+        .header-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .header-details {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+        }
+
+            .header-details div {
+                flex: 1;
+                text-align: center;
+            }
+
+            .header-details .time-range {
+                display: flex;
+                justify-content: center;
+            }
+
+                .header-details .time-range div {
+                    margin: 0 10px;
+                }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background-color: #ffffff;
+        }
+
+            .table th, .table td {
+                border: 1px solid #dee2e6;
+                padding: 10px;
+                text-align: left;
+            }
+
+            .table th {
+                background-color: #007bff;
+                color: #ffffff;
+            }
+
+            .table tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+        .btn-toolbar {
+            padding: 10px;
+            text-align: right;
+        }
+
+        #printButton {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+            #printButton:hover {
+                background-color: #0056b3;
+            }
+
+        @@media print {
+            .page-break {
+                page-break-before: always;
+            }
+
+            body {
+                font-size: 10pt;
+                margin: 0;
+            }
+
+            .table th, .table td {
+                border: 1px solid #000;
+            }
+
+            .table th {
+                background-color: #007bff;
+                color: #ffffff;
+            }
+
+            .table tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+        }
+    </style>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="btn-toolbar">
+        <button id="printButton">Print</button>
+    </div>
+    <div class="header-container">
+        <div class="header-title">
+            Production Receipt
+        </div>
+        <div class="header-details">
+            <div>
+                Date
+                <div>
+                    @DateTime.Now.ToString("yyyy-MM-dd")
+                </div>
+            </div>
+            <div>
+                Shift No
+                <div>
+                    <input type="text" placeholder="Enter Shift No">
+                </div>
+            </div>
+
+            @using (Html.BeginForm("ProductionReport", "HandlingUnits", FormMethod.Get))
+            {
+                <div class="time-range">
+                    <div>
+                        From Time
+                        <div>
+                            <input type="datetime-local" id="fromTimePicker" name="FromTime" value="@ViewBag.FromTime" />
+                        </div>
+                    </div>
+                    <div>
+                        To Time
+                        <div>
+                            <input type="datetime-local" id="toTimePicker" name="ToTime" value="@ViewBag.ToTime" />
+                        </div>
+                    </div>
+                    <div>
+                        <input type="checkbox" id="detailCheckbox" name="Detail" value="true" checked="checked" />
+                        <label for="detailCheckbox">Detail</label>
+                    </div>
+                </div>
+                <button type="submit">Submit</button>
+            }
+        </div>
+    </div>
+
+    <div>
+        <table class="table">
+            <tr>
+                <th>Item</th>
+                <th>Description</th>
+                <th>Total Scanned</th>
+                <th>Rejected</th>
+                <th>Pending</th>
+                <th>Accepted</th>
+                <th>Total KG</th>
+                <th>Comments</th>
+            </tr>
+            @foreach (var Product in ViewBag.ViewModel)
+            {
+                <tr>
+                    <td>@(int.Parse(Product.PLU).ToString())</td>
+                    <td>@Product.Description</td>
+                    <td>@Product.TotalScanned</td>
+                    <td>@Product.TotalRejected</td>
+                    <td>@Product.TotalPending</td>
+                    <td>@Product.TotalAccepted</td>
+                    <td>@Product.TotalKG</td>
+                    <td></td>
+                </tr>
+            }
+            <tr>
+                <td></td>
+                <td></td>
+                <td>@ViewBag.TotalScanned</td>
+                <td>@ViewBag.TotalRejected</td>
+                <td>@ViewBag.TotalPending</td>
+                <td>@ViewBag.TotalAccepted</td>
+                <td>@ViewBag.TotalWeight</td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="page-break"></div>
+
+    @if (ViewBag.DisplayDetail != "False")
+    {
+        <table class="table">
+            @foreach (var ProductGroup in Model)
+            {
+                <tr>
+                    <th>PLU</th>
+                    <th>SSCC</th>
+                    <th>Description</th>
+                    <th>Created</th>
+                    <th>Batch</th>
+                    <th>Reject Reason</th>
+                </tr>
+                foreach (var item in ProductGroup.ProductItems)
+                {
+        <tr>
+            <td>@(int.TryParse(ProductGroup.PLU, out var result) ? result.ToString() : ProductGroup.PLU)</td>
+            <td>@Html.DisplayFor(modelItem => item.SSCC)</td>
+            <td>@Html.DisplayFor(modelItem => ProductGroup.Description)</td>
+            <td>@Html.DisplayFor(modelItem => item.Created)</td>
+            <td>@Html.DisplayFor(modelItem => item.BatchDescription)</td>
+            @if (item.RejectReason == "Rejected")
+            {
+                <td>@Html.ActionLink("RejectReason", "HandlingUnits", new { Id = item.SSCC })</td>
+            }
+            else
+            {
+                <td></td>
+            }
+        </tr>
+                }
+                <tr>
+                    <td colspan="5" style="text-align:right;"><strong>Total:</strong></td>
+                    <td>@Html.DisplayFor(modelItem => ProductGroup.TotalScanned)</td>
+                </tr>
+                <tr>
+                    <td colspan="5" style="border: none;">&nbsp;</td>
+                </tr>
+            }
+        </table>
+    }
+
+    <script>
+        document.getElementById("printButton").addEventListener("click", function () {
+            window.print();
+        });
+    </script>
+</body>
+</html>

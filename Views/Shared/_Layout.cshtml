@@ -28,6 +28,7 @@
                             Handling Units
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="handlingUnitsDropdown">
+                            <li>@Html.ActionLink("Production Report", "ProductionReport", "HandlingUnits", new { area = "" }, new { @class = "dropdown-item" })</li>
                             <li>@Html.ActionLink("Search", "Index", "HandlingUnits", new { area = "" }, new { @class = "dropdown-item" })</li>
                             <li>@Html.ActionLink("Import Live", "ImportHandlingUnits", "HandlingUnits", new { area = "" }, new { @class = "dropdown-item" })</li>
                             @*<li><a href="/HandlingUnits/Export" class="dropdown-item">Export</a></li>*@

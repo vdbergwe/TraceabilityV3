@@ -301,7 +301,7 @@ namespace TraceabilityV3.Controllers
                 }
 
                 // Update the status to "Rejected"
-                handlingUnit.Status = "Rejected";
+                handlingUnit.Status = "Rejected " + RejectId;
                 handlingUnit.IsUploaded = false;
                 db.Entry(handlingUnit).State = EntityState.Modified;
 
