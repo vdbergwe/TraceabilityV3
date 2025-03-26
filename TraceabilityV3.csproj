@@ -292,6 +292,7 @@
     <Compile Include="Models\APIHandlingUnitMovement.cs" />
     <Compile Include="Models\APIHandlingUnit.cs" />
     <Compile Include="Models\CentralAPIClient.cs" />
+    <Compile Include="Models\Global.cs" />
     <Compile Include="Models\HandlingUnitsViewModel.cs" />
     <Compile Include="Models\ICentralApiClient.cs" />
     <Compile Include="Models\IdentityModels.cs" />
