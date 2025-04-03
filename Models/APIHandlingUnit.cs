@@ -17,5 +17,6 @@ namespace TraceabilityV3.Models
         public string Horse { get; set; }
         public string Status { get; set; }
         public string ChildServer { get; set; }
+        public Nullable<bool> zzSAPIntegration { get; set; }
     }   
 }

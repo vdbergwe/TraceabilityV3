@@ -42,5 +42,7 @@ namespace TraceabilityV3
         public string CurrentOperatorId { get; set; }
         public Nullable<bool> RequiresSupport { get; set; }
         public Nullable<int> Waypoint { get; set; }
+        public string PrinterType { get; set; }
+        public string PrinterIP { get; set; }
     }
 }

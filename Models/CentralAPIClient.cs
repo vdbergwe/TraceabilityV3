@@ -25,19 +25,20 @@ namespace TraceabilityV3.Models
         {
             //try
             //{
-                var ApiHU = new APIHandlingUnit
-                {
-                    SSCC = record.SSCC,
-                    WERKS = record.WERKS,
-                    MATNR = record.MATNR,
-                    ScannedCode = record.ScannedCode,
-                    Created = record.Created,
-                    CreatedBy = record.CreatedBy,
-                    Batch = record.Batch,
-                    Horse = record.Horse,
-                    Status = record.Status,
-                    ChildServer = Environment.MachineName
-                };
+            var ApiHU = new APIHandlingUnit
+            {
+                SSCC = record.SSCC,
+                WERKS = record.WERKS,
+                MATNR = record.MATNR,
+                ScannedCode = record.ScannedCode,
+                Created = record.Created,
+                CreatedBy = record.CreatedBy,
+                Batch = record.Batch,
+                Horse = record.Horse,
+                Status = record.Status,
+                ChildServer = Environment.MachineName,
+                zzSAPIntegration = false
+            };
 
                 var ZplLable = db.IssuedLabels.FirstOrDefault(il => il.SSCC == record.SSCC);
                 var RegisterMovement = db.HandlingUnitMovements.FirstOrDefault(hu => hu.SSCC == record.SSCC && hu.Status == "Registered");
@@ -100,7 +101,7 @@ namespace TraceabilityV3.Models
                 LogToFile($"Sending JSON:\n{jsonData}");
 
                 using (var content = new StringContent(jsonData, Encoding.UTF8, "application/json"))
-                using (var response = await _httpClient.PostAsync("https://localhost:44314/api/APIHandlingUnits/AutoUpdate", content))
+                using (var response = await _httpClient.PostAsync($"{Global.CentralURL}api/APIHandlingUnits/AutoUpdate", content))
                 {
                     string responseContent = await response.Content.ReadAsStringAsync();
 
@@ -163,8 +164,7 @@ namespace TraceabilityV3.Models
             var json = JsonConvert.SerializeObject(ApiMovementHU);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            //var response = await _httpClient.PostAsync("https://rclmldev01.tsb.co.za:3448/api/APIHandlingUnits/AutoMovementUpdate", content);
-            var response = await _httpClient.PostAsync("https://localhost:44314/api/APIHandlingUnits/AutoMovementUpdate", content);
+            var response = await _httpClient.PostAsync($"{Global.CentralURL}api/APIHandlingUnits/AutoMovementUpdate", content);
 
             response.EnsureSuccessStatusCode();
         }

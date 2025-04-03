@@ -37,6 +37,8 @@
           <Property Name="CurrentOperatorId" Type="nvarchar" MaxLength="128" />
           <Property Name="RequiresSupport" Type="bit" />
           <Property Name="Waypoint" Type="int" />
+          <Property Name="PrinterType" Type="nvarchar" MaxLength="7" />
+          <Property Name="PrinterIP" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="GUSHandlingUnits">
           <Key>
@@ -271,6 +273,8 @@
           <Property Name="CurrentOperatorId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
           <Property Name="RequiresSupport" Type="Boolean" />
           <Property Name="Waypoint" Type="Int32" />
+          <Property Name="PrinterType" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Name="PrinterIP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="GUSHandlingUnit">
           <Key>
@@ -452,6 +456,8 @@
           <EntitySetMapping Name="Devices">
             <EntityTypeMapping TypeName="TraceabilityModel.Device">
               <MappingFragment StoreEntitySet="Devices">
+                <ScalarProperty Name="PrinterIP" ColumnName="PrinterIP" />
+                <ScalarProperty Name="PrinterType" ColumnName="PrinterType" />
                 <ScalarProperty Name="Waypoint" ColumnName="Waypoint" />
                 <ScalarProperty Name="RequiresSupport" ColumnName="RequiresSupport" />
                 <ScalarProperty Name="CurrentOperatorId" ColumnName="CurrentOperatorId" />

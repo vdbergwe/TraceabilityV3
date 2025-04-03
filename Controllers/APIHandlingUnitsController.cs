@@ -102,38 +102,111 @@ namespace TraceabilityV3.Controllers
 
         // GET: api/APIHandlingUnits/PendingHandlingUnits/WaypointId
         [System.Web.Http.HttpGet]
-        [System.Web.Http.Route("api/APIHandlingUnits/PendingHandlingUnits/{WaypointId}")]
-        public async Task<IHttpActionResult> PendingHandlingUnits ( string WaypointId)
+        [System.Web.Http.Route("api/APIHandlingUnits/PendingHandlingUnits/{Device}")]
+        public async Task<IHttpActionResult> PendingHandlingUnits (string Device)
         {
-            try
+            int? WaypointId = db.Devices.Where(d => d.Description == Device).Select(d => d.Waypoint).FirstOrDefault();
+            var CurrentWaypoint = db.Waypoints.Find(WaypointId);
+            string Status1 = string.Empty;
+            string Status2 = string.Empty;
+            string InitiatingWaypointId = string.Empty;
+            if (CurrentWaypoint.Type == "PAS")
             {
-                // Join HandlingUnits with HandlingUnitMovements and SAPMaterials based on SSCC and MATNR
-                var handlingUnits = await (from hu in db.HandlingUnits
-                                           join hum in db.HandlingUnitMovements on hu.SSCC equals hum.SSCC
-                                           join sm in db.SAPMaterials on hu.MATNR equals sm.MATNR
-                                           where (hu.Status == "Accepted" || hu.Status == "Registered")
-                                                 && hum.Device == WaypointId
-                                           select new
-                                           {
-                                               SSCC = hu.SSCC,
-                                               Product = sm.MAKTX, // Fetch the MAKTX (Product) from SAPMaterials table
-                                               Status = hu.Status
-                                           }).Distinct().ToListAsync();
+                Status1 = "Accepted";
+                Status2 = "Registered";
+                InitiatingWaypointId = CurrentWaypoint.Id.ToString();
+            }
+            if (CurrentWaypoint.Type == "GUS")
+            {
+                Status1 = "To " + CurrentWaypoint.Description;
+                Status2 = "Accepted at " + CurrentWaypoint.Description;
+                InitiatingWaypointId = db.Waypoints.Where(w => w.ToWaypoint == CurrentWaypoint.Id).Select(w => w.Id).FirstOrDefault().ToString();                
+            }
 
-                // Check if any handling units are found
-                if (handlingUnits == null || handlingUnits.Count == 0)
+            if (WaypointId != null)
+            {
+                try
                 {
-                    return NotFound(); // Return 404 if no matching handling units are found
-                }
+                    // Join HandlingUnits with HandlingUnitMovements and SAPMaterials based on SSCC and MATNR
+                    var handlingUnits = await (from hu in db.HandlingUnits
+                                               join hum in db.HandlingUnitMovements on hu.SSCC equals hum.SSCC
+                                               join sm in db.SAPMaterials on hu.MATNR equals sm.MATNR
+                                               where (hu.Status == Status1 || hu.Status == Status2)
+                                                     && hum.Waypoint == InitiatingWaypointId
+                                               select new
+                                               {
+                                                   SSCC = hu.SSCC,
+                                                   Product = sm.MAKTX, // Fetch the MAKTX (Product) from SAPMaterials table
+                                                   Status = hu.Status
+                                               }).Distinct().ToListAsync();
 
-                // Return the list of handling units
-                return Ok(handlingUnits);
+                    // Check if any handling units are found
+                    if (handlingUnits == null || handlingUnits.Count == 0)
+                    {
+                        return NotFound(); // Return 404 if no matching handling units are found
+                    }
+
+                    // Return the list of handling units
+                    return Ok(handlingUnits);
+                }
+                catch (Exception ex)
+                {
+                    // Log the error and return a server error
+                    return InternalServerError(ex);
+                }
             }
-            catch (Exception ex)
+            else
+                { return NotFound(); }
+           
+        }
+
+        // GET: api/APIHandlingUnits/HandlingUnitHistory/WaypointId
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("api/APIHandlingUnits/HandlingUnitHistory/{Device}")]
+        public async Task<IHttpActionResult> HandlingUnitHistory(string Device)
+        {
+            int? WaypointId = db.Devices.Where(d => d.Description == Device).Select(d => d.Waypoint).FirstOrDefault();
+            var CurrentWaypoint = db.Waypoints.Find(WaypointId);
+            var NextWaypoint = db.Waypoints.Find(CurrentWaypoint.ToWaypoint);
+            string Status1 = "To " + NextWaypoint.Description;
+            
+            if (WaypointId != null)
             {
-                // Log the error and return a server error
-                return InternalServerError(ex);
+                try
+                {
+                    var handlingUnits = await (from hum in db.HandlingUnitMovements
+                                               join hu in db.HandlingUnits on hum.SSCC equals hu.SSCC
+                                               join sm in db.SAPMaterials on hu.MATNR equals sm.MATNR
+                                               where hum.Waypoint == CurrentWaypoint.Id.ToString() && hum.Status == Status1
+                                               group new { hum, hu, sm } by hum.SSCC into g
+                                               let latestMovement = g.OrderByDescending(h => h.hum.MovementTime).FirstOrDefault()
+                                               orderby latestMovement.hum.MovementTime descending
+                                               select new
+                                               {
+                                                   SSCC = g.Key,
+                                                   Product = latestMovement.sm.MAKTX,
+                                                   Status = latestMovement.hu.Status,
+                                                   MovementTime = latestMovement.hum.MovementTime
+                                               })
+                          .Take(12)
+                          .AsNoTracking()
+                          .ToListAsync();
+
+                    if (handlingUnits == null || handlingUnits.Count == 0)
+                    {
+                        return NotFound(); 
+                    }
+                                        
+                    return Ok(handlingUnits.OrderBy(h => h.SSCC));
+                }
+                catch (Exception ex)
+                {                    
+                    return InternalServerError(ex);
+                }
             }
+            else
+            { return NotFound(); }
+
         }
 
         // GET: api/APIHandlingUnits/AcceptHandlingUnit/SSCC/WaypointId/UserId
@@ -159,14 +232,20 @@ namespace TraceabilityV3.Controllers
                     return Ok("False"); // Return False if handling unit is not found
                 }
 
-                // Update the status to "Accepted"
-                handlingUnit.Status = "Accepted";
-                handlingUnit.IsUploaded = false;
-                db.Entry(handlingUnit).State = EntityState.Modified;
-
                 int CurrentWaypointId = Convert.ToInt32(db.Devices.Where(d => d.Description == WaypointId).Select(d => d.Waypoint).FirstOrDefault());
                 var CurrentWaypoint = db.Waypoints.Where(wp => wp.Id == CurrentWaypointId).FirstOrDefault();
                 var NextWaypoint = db.Waypoints.Where(wp => wp.Id == CurrentWaypoint.ToWaypoint).FirstOrDefault();
+
+                // Update the status to "Accepted"
+                handlingUnit.Status = "Accepted";
+                if (CurrentWaypoint.Type != "PAS")
+                {
+                    handlingUnit.Status = "Accepted at " + CurrentWaypoint.Description;
+                }
+                handlingUnit.IsUploaded = false;
+                db.Entry(handlingUnit).State = EntityState.Modified;
+
+                
 
                 // Update HU Movement
                 var HandlingUnitMovement = new HandlingUnitMovement
@@ -219,7 +298,7 @@ namespace TraceabilityV3.Controllers
                     return Ok("False"); // Return False if SSCC is invalid
                 }
 
-                // Fetch the HandlingUnit from the database using Entity Framework (EF)
+                // Fetch the HandlingUnit from the database
                 var handlingUnit = await db.HandlingUnits
                     .FirstOrDefaultAsync(h => h.SSCC == SSCC);
 
@@ -257,21 +336,19 @@ namespace TraceabilityV3.Controllers
                 db.HandlingUnitMovements.Add(HandlingUnitMovement);
 
 
-                // Save the changes to the database
                 int changes = await db.SaveChangesAsync();
 
                 if (changes > 0)
                 {
-                    return Ok("True"); // Return True if update was successful
+                    return Ok("True"); 
                 }
                 else
                 {
-                    return Ok("False"); // Return False if update failed (no changes saved)
+                    return Ok("False"); 
                 }
             }
             catch (Exception ex)
             {
-                // Return False if an error occurred
                 Console.WriteLine(ex.ToString());
                 return Ok("False");
             }

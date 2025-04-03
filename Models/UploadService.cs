@@ -1,81 +1,107 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
+using System.Diagnostics;
 
 namespace TraceabilityV3.Models
 {
     public class UploadService
     {
-        private readonly TraceabilityEntities _db = new TraceabilityEntities();
+        private readonly IDbContextFactory<TraceabilityEntities> _dbContextFactory;
         private readonly ICentralApiClient _apiClient;
 
-        public UploadService(TraceabilityEntities db, ICentralApiClient apiClient)
+        public UploadService(IDbContextFactory<TraceabilityEntities> dbContextFactory, ICentralApiClient apiClient)
         {
-            _db = db;
-            _apiClient = apiClient;
+            _dbContextFactory = dbContextFactory ?? throw new ArgumentNullException(nameof(dbContextFactory));
+            _apiClient = apiClient ?? throw new ArgumentNullException(nameof(apiClient));
         }
 
         // Get pending records (IsUploaded == false)
-        public IQueryable<HandlingUnit> GetPendingRecords()
+        public async Task<List<HandlingUnit>> GetPendingRecordsAsync()
         {
-            return _db.HandlingUnits.Where(r => r.IsUploaded != true);
+            using (var db = _dbContextFactory.Create())
+            {
+                return await db.HandlingUnits
+                    .Where(r => (r.IsUploaded ?? false) == false)
+                    .ToListAsync();
+            }
         }
 
-        // Get pending records (IsUploaded == false)
-        public IQueryable<HandlingUnitMovement> GetPendingMovements()
+        public async Task<List<HandlingUnitMovement>> GetPendingMovementsAsync()
         {
-            return _db.HandlingUnitMovements.Where(r => r.IsUploaded != true);
+            using (var db = _dbContextFactory.Create())
+            {
+                return await db.HandlingUnitMovements
+                    .Where(r => (r.IsUploaded ?? false) == false)
+                    .ToListAsync();
+            }
         }
 
         // Upload a single record
         public async Task ProcessUploadAsync(HandlingUnit record)
         {
-            try
-            {
-                // Ensure the entity has the most up-to-date data
-                await _db.Entry(record).ReloadAsync();
+            if (record == null) return;
 
-                await _apiClient.UploadRecord(record);  // Call to central API
-                record.IsUploaded = true;
-
-                _db.Entry(record).State = EntityState.Modified;
-                _db.SaveChanges();
-            }
-            catch (Exception ex)
+            using (var db = _dbContextFactory.Create())
             {
-                // Log the error (or implement retry logic)
-                System.Diagnostics.Debug.WriteLine($"Upload failed for {record.SSCC}: {ex.Message}");
+                try
+                {
+                    var existingRecord = await db.HandlingUnits.FindAsync(record.SSCC);
+                    if (existingRecord == null)
+                    {
+                        Debug.WriteLine($"Record {record.SSCC} not found in the database.");
+                        return;
+                    }
+
+                    await _apiClient.UploadRecord(existingRecord); // Call to central API
+                    existingRecord.IsUploaded = true;
+
+                    db.Entry(existingRecord).State = EntityState.Modified;
+                    await db.SaveChangesAsync();
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Upload failed for {record.SSCC}: {ex.Message}");
+                }
             }
         }
 
-        // Upload a single record
+        // Upload a single movement
         public async Task ProcessMovementAsync(HandlingUnitMovement record)
         {
-            try
-            {
-                // Ensure the entity has the most up-to-date data
-                await _db.Entry(record).ReloadAsync();
+            if (record == null) return;
 
-                await _apiClient.UploadMovementRecord(record);  // Call to central API
-                record.IsUploaded = true;
-
-                _db.Entry(record).State = EntityState.Modified;
-                _db.SaveChanges();
-            }
-            catch (Exception ex)
+            using (var db = _dbContextFactory.Create())
             {
-                // Log the error (or implement retry logic)
-                System.Diagnostics.Debug.WriteLine($"Upload failed for {record.SSCC}: {ex.Message}");
+                try
+                {
+                    var existingRecord = await db.HandlingUnitMovements.FindAsync(record.Id);
+                    if (existingRecord == null)
+                    {
+                        Debug.WriteLine($"Movement {record.SSCC} not found in the database.");
+                        return;
+                    }
+
+                    await _apiClient.UploadMovementRecord(existingRecord); // Call to central API
+                    existingRecord.IsUploaded = true;
+
+                    db.Entry(existingRecord).State = EntityState.Modified;
+                    await db.SaveChangesAsync();
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Upload failed for movement {record.SSCC}: {ex.Message}");
+                }
             }
         }
 
         // Upload all pending records
         public async Task ProcessPendingRecordsAsync()
         {
-            var pendingRecords = GetPendingRecords().ToList();
+            var pendingRecords = await GetPendingRecordsAsync();
             foreach (var record in pendingRecords)
             {
                 await ProcessUploadAsync(record);
@@ -85,7 +111,7 @@ namespace TraceabilityV3.Models
         // Upload all pending movements
         public async Task ProcessPendingMovementsAsync()
         {
-            var pendingMovements = GetPendingMovements().ToList();
+            var pendingMovements = await GetPendingMovementsAsync();
             foreach (var record in pendingMovements)
             {
                 await ProcessMovementAsync(record);

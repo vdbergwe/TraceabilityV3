@@ -36,6 +36,41 @@ namespace TraceabilityV3.Controllers
             return Ok(device);
         }
 
+        [HttpPost]
+        [ResponseType(typeof(void))]
+        [Route("api/APIDevices/UpdateDevice")]
+        public async Task<IHttpActionResult> UpdateDevice([FromUri] string DeviceName, [FromUri] string PrinterType, [FromUri] string PrinterIP)
+        { 
+            var device = await db.Devices.Where(d => d.Description == DeviceName).FirstOrDefaultAsync();
+
+            device.PrinterIP = PrinterIP;
+            device.PrinterType = PrinterType;
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            db.Entry(device).State = EntityState.Modified;
+
+            try
+            {
+                await db.SaveChangesAsync();
+                return Ok();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!DeviceExists(device.Id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+        }
+
         // PUT: api/APIDevices/5
         [HttpPost]
         [ResponseType(typeof(void))]

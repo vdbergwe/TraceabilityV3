@@ -6,6 +6,7 @@ using System.Reactive;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Reactive.Concurrency;
+using System.Threading;
 
 namespace TraceabilityV3.Models
 {
@@ -15,6 +16,7 @@ namespace TraceabilityV3.Models
         private readonly Subject<Unit> _newRecordSubject = new Subject<Unit>();
         private readonly Subject<Unit> _newMovementSubject = new Subject<Unit>();
         private readonly IDisposable _mergedSubscription;
+        private readonly SemaphoreSlim _semaphore = new SemaphoreSlim(1, 1);
 
         public UploadManager(UploadService uploadService)
         {

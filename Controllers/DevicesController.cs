@@ -46,7 +46,7 @@ namespace TraceabilityV3.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Description,IP,Type,Status,MAC,SwitchPort,Switch,SerialNumber,HardwareVersion,SoftwareVersion,StorageInformation,NetworkInformation,LocalWebServerUrlPORT,RequiresUpdate,LastCheckin,LastReportedStatus,NetworkConfigIP,NetworkConfigSubnet,NetworkConfigGateway,NetworkConfigDNS,LockedOut,LockedOutBy,LockedOutOn,SecurityKey,CurrentOperatorId,RequiresSupport,Waypoint")] Device device)
+        public ActionResult Create([Bind(Include = "Id,Description,IP,Type,Status,MAC,SwitchPort,Switch,SerialNumber,HardwareVersion,SoftwareVersion,StorageInformation,NetworkInformation,LocalWebServerUrlPORT,RequiresUpdate,LastCheckin,LastReportedStatus,NetworkConfigIP,NetworkConfigSubnet,NetworkConfigGateway,NetworkConfigDNS,LockedOut,LockedOutBy,LockedOutOn,SecurityKey,CurrentOperatorId,RequiresSupport,Waypoint,PrinterType,PrinterIP")] Device device)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace TraceabilityV3.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Description,IP,Type,Status,MAC,SwitchPort,Switch,SerialNumber,HardwareVersion,SoftwareVersion,StorageInformation,NetworkInformation,LocalWebServerUrlPORT,RequiresUpdate,LastCheckin,LastReportedStatus,NetworkConfigIP,NetworkConfigSubnet,NetworkConfigGateway,NetworkConfigDNS,LockedOut,LockedOutBy,LockedOutOn,SecurityKey,CurrentOperatorId,RequiresSupport,Waypoint")] Device device)
+        public ActionResult Edit([Bind(Include = "Id,Description,IP,Type,Status,MAC,SwitchPort,Switch,SerialNumber,HardwareVersion,SoftwareVersion,StorageInformation,NetworkInformation,LocalWebServerUrlPORT,RequiresUpdate,LastCheckin,LastReportedStatus,NetworkConfigIP,NetworkConfigSubnet,NetworkConfigGateway,NetworkConfigDNS,LockedOut,LockedOutBy,LockedOutOn,SecurityKey,CurrentOperatorId,RequiresSupport,Waypoint,PrinterType,PrinterIP")] Device device)
         {
             if (ModelState.IsValid)
             {
