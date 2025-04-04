@@ -46,7 +46,7 @@ namespace TraceabilityV3.Controllers
             // Send HTTPS Get to update Central SSCC Number Bank
             using (var client = new HttpClient())
             {
-                string CentralURL = $"https://rclstrace01.tsb.co.za:5443/api/APISSCCCentrals/UpdateSSCCCentral/{NumberBank}/{LastNumber}";
+                string CentralURL = $"https://rclstrace01.tsb.co.za:4443/api/APISSCCCentrals/UpdateSSCCCentral/{NumberBank}/{LastNumber}";
 
                 try
                 {
@@ -187,7 +187,7 @@ namespace TraceabilityV3.Controllers
             using (var client = new HttpClient())
             {
                 string serverName = Dns.GetHostName(); // Get the server name
-                string CentralURL = $"https://rclstrace01.tsb.co.za:5443/api/APISSCCCentrals/GenerateSSCC/{serverName}/{WaypointId}";
+                string CentralURL = $"https://rclstrace01.tsb.co.za:4443/api/APISSCCCentrals/GenerateSSCC/{serverName}/{WaypointId}";
                 try
                 {
                     var response = await client.GetAsync(CentralURL);

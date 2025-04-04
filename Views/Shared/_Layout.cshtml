@@ -30,7 +30,7 @@
                         <ul class="dropdown-menu" aria-labelledby="handlingUnitsDropdown">
                             <li>@Html.ActionLink("Production Report", "ProductionReport", "HandlingUnits", new { area = "" }, new { @class = "dropdown-item" })</li>
                             <li>@Html.ActionLink("Search", "Index", "HandlingUnits", new { area = "" }, new { @class = "dropdown-item" })</li>
-                            <li>@Html.ActionLink("Import Live", "ImportHandlingUnits", "HandlingUnits", new { area = "" }, new { @class = "dropdown-item" })</li>
+                            <li>@*@Html.ActionLink("Import Live", "ImportHandlingUnits", "HandlingUnits", new { area = "" }, new { @class = "dropdown-item" })*@</li>
                             @*<li><a href="/HandlingUnits/Export" class="dropdown-item">Export</a></li>*@
                         </ul>
                     </li>
@@ -40,7 +40,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="SapMaterialsDropdown">
                             <li>@Html.ActionLink("Search", "Index", "SAPMaterials", new { area = "" }, new { @class = "dropdown-item" })</li>
-                            <li>@Html.ActionLink("Import From SAP", "ImportSAPMaterials", "SAPMaterials", new { area = "" }, new { @class = "dropdown-item" })</li>
+                            <li>@*@Html.ActionLink("Import From SAP", "ImportSAPMaterials", "SAPMaterials", new { area = "" }, new { @class = "dropdown-item" })*@</li>
                             @*<li><a href="/HandlingUnits/Export" class="dropdown-item">Export</a></li>*@
                         </ul>
                     </li>
@@ -70,13 +70,13 @@
                                     <li>@Html.ActionLink("Create", "Create", "WayPoints", new { area = "" }, new { @class = "dropdown-item" })</li>
                                 </ul>
                             </li>
-                            <li class="dropdown-submenu">
+                            @*<li class="dropdown-submenu">
                                 <a class="dropdown-item dropdown-toggle" href="#">Deployments</a>
                                 <ul class="dropdown-menu">
                                     <li>@Html.ActionLink("Option 1", "Action1", "Controller", new { area = "" }, new { @class = "dropdown-item" })</li>
                                     <li>@Html.ActionLink("Option 2", "Action2", "Controller", new { area = "" }, new { @class = "dropdown-item" })</li>
                                 </ul>
-                            </li>  
+                            </li>*@  
                         </ul>
                     </li>
                 </ul>
