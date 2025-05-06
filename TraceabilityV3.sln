@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Traceability_Win", "..\Trac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Traceability_Central", "..\Traceability_Central\Traceability_Central.csproj", "{2F4492F4-0C42-40E3-BEAD-DE8425EC7BB2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TraceabilityAppAPI", "..\TraceabilityAppAPI\TraceabilityAppAPI.csproj", "{60A1CAC9-8F3C-42D7-9CB0-B638EC40426D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{2F4492F4-0C42-40E3-BEAD-DE8425EC7BB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F4492F4-0C42-40E3-BEAD-DE8425EC7BB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F4492F4-0C42-40E3-BEAD-DE8425EC7BB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60A1CAC9-8F3C-42D7-9CB0-B638EC40426D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60A1CAC9-8F3C-42D7-9CB0-B638EC40426D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60A1CAC9-8F3C-42D7-9CB0-B638EC40426D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60A1CAC9-8F3C-42D7-9CB0-B638EC40426D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
