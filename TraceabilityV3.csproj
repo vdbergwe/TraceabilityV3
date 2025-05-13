@@ -485,6 +485,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Properties\PublishProfiles\Deploy to DEV.pubxml" />
+    <None Include="Properties\PublishProfiles\LIVE Pongola.pubxml" />
     <None Include="Properties\PublishProfiles\Publish to Local PC.pubxml" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />

@@ -46,12 +46,12 @@ namespace TraceabilityV3.Controllers
             // Send HTTPS Get to update Central SSCC Number Bank
             using (var client = new HttpClient())
             {
-                string CentralURL = $"https://rclstrace01.tsb.co.za:4443/api/APISSCCCentrals/UpdateSSCCCentral/{NumberBank}/{LastNumber}";
+                string CentralURLFull = $"{Global.CentralURL}api/APISSCCCentrals/UpdateSSCCCentral/{NumberBank}/{LastNumber}";
 
                 try
                 {
                     // Retrieve the latest SSCC data from the central server
-                    var response = await client.GetAsync(CentralURL);
+                    var response = await client.GetAsync(CentralURLFull);
                     Console.WriteLine($"Response Status Code: {response.StatusCode}");
 
                     if (!response.IsSuccessStatusCode)
@@ -187,7 +187,7 @@ namespace TraceabilityV3.Controllers
             using (var client = new HttpClient())
             {
                 string serverName = Dns.GetHostName(); // Get the server name
-                string CentralURL = $"https://rclstrace01.tsb.co.za:4443/api/APISSCCCentrals/GenerateSSCC/{serverName}/{WaypointId}";
+                string CentralURL = $"{Global.CentralURL}api/APISSCCCentrals/GenerateSSCC/{serverName}/{WaypointId}";
                 try
                 {
                     var response = await client.GetAsync(CentralURL);
@@ -358,7 +358,18 @@ namespace TraceabilityV3.Controllers
             string dateString = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss");
 
             // Calculate ExpiryDate
-            DateTime ExpiryDate = DateTime.Now.AddYears(3);
+            string tMatnr = db.HandlingUnits.Where(hu => hu.SSCC == SSCC).Select(hu => hu.MATNR).FirstOrDefault();
+            string tMatDesc = db.SAPMaterials.Where(sm => sm.MATNR == tMatnr).Select(sm => sm.MAKTX).FirstOrDefault();
+            DateTime ExpiryDate;
+            if (tMatDesc.IndexOf("castor", StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                ExpiryDate = DateTime.Now.AddMonths(18);
+            }
+            else
+            {
+                ExpiryDate = DateTime.Now.AddYears(3);
+            }
+
             string BestBefore = ExpiryDate.ToString("yyyy/MM/dd");
 
             // Fetch data
@@ -417,12 +428,15 @@ namespace TraceabilityV3.Controllers
                 // Production Data
                 LabelLines.Add("^CF0,35^FB403,1,0,C,0^FO340,210^FDPRODUCTION DATA:\\&^FS\n");
                 LabelLines.Add("^CF0,28\n");
-                LabelLines.Add("^FB240,1,0,R,0^FO250,260^FDDate Code:\\&^FS^FO500,260^FD" + JulianDateCode + "^FS\n");
-                LabelLines.Add("^FB240,1,0,R,0^FO250,295^FDDate/Time:\\&^FS^FO500,295 ^FD" + dateString + "^FS\n");
-                LabelLines.Add("^FB240,1,0,R,0^FO250,330^FDPlant:\\&^FS^FO500,330 ^FD" + data.WERKS + "^FS\n");
-                LabelLines.Add("^FB240,1,0,R,0^FO250,365^FDBatch Code:\\&^FS^FO500,365  ^FD" + data.Batch + "^FS\n");
-                LabelLines.Add("^FB240,1,0,R,0^FO250,400^FDBest Before:\\&^FS ^FO500,400 ^FD" + BestBefore + "^FS\n");
-                LabelLines.Add("^FB240,1,0,R,0^FO250,435^FDSSCC:\\&^FS ^FO500,435 ^FD" + SSCC + "^FS\n");
+                LabelLines.Add("^FB240,1,0,R,0^FO250,260^FDDate Code:\\&^FS\n");
+                LabelLines.Add("^CF0,52\n");
+                LabelLines.Add("^FO500,260^FD" + JulianDateCode + "^FS\n");
+                LabelLines.Add("^CF0,28\n");
+                LabelLines.Add("^FB240,1,0,R,0^FO250,315^FDDate/Time:\\&^FS^FO500,315 ^FD" + dateString + "^FS\n");
+                LabelLines.Add("^FB240,1,0,R,0^FO250,350^FDPlant:\\&^FS^FO500,350 ^FD" + data.WERKS + "^FS\n");
+                LabelLines.Add("^FB240,1,0,R,0^FO250,385^FDBatch Code:\\&^FS^FO500,385  ^FD" + data.Batch + "^FS\n");
+                LabelLines.Add("^FB240,1,0,R,0^FO250,420^FDBest Before:\\&^FS ^FO500,420 ^FD" + BestBefore + "^FS\n");
+                LabelLines.Add("^FB240,1,0,R,0^FO250,455^FDSSCC:\\&^FS ^FO500,455 ^FD" + SSCC + "^FS\n");
 
                 // Underline for SSCC and Production Data
                 LabelLines.Add("^FO10,520^GB810,2,2,B,0^FS\n");
@@ -431,7 +445,7 @@ namespace TraceabilityV3.Controllers
                 LabelLines.Add("^CF0,105^FB785,1,0,C,0^FO30,560^FD" + data.MATNR.TrimStart('0') + "\\&^FS\n");
                 
                 // Determine font size based on string length
-                string fontSize = data.Material.Length > 28 ? "68" : "85";  // Set font size to 60 if over 28 characters, otherwise 85
+                string fontSize = data.Material.Length > 28 ? "68" : "85"; 
 
                 LabelLines.Add($"^CF0,{fontSize}^FB785,2,0,C,0^FO30,680^FD{data.Material}^FS");
 

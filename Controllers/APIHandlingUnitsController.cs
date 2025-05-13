@@ -35,6 +35,12 @@ namespace TraceabilityV3.Controllers
         FunctionsController functionsController = new FunctionsController();
         static TimeZoneInfo tz = TimeZoneInfo.FindSystemTimeZoneById("South Africa Standard Time");
 
+        public class WaypointDto
+        {
+            public string Description { get; set; }
+            public string Status { get; set; }
+        }
+
         private readonly UploadManager _uploadManager;
         private static readonly HttpClient httpClient = new HttpClient();
 
@@ -75,7 +81,7 @@ namespace TraceabilityV3.Controllers
                 string body = Message;
 
                 // Build the URL to call the EmailService API
-                string emailApiUrl = $"https://localhost:44314/Email/SendEmail?from={from}&to={to}&subject={subject}&body={body}";
+                string emailApiUrl = $"https://rclpgstrace01.tsb.co.za:5443/Email/SendEmail?from={from}&to={to}&subject={subject}&body={body}";
 
 
                 // Call the Email API using HttpClient
@@ -100,6 +106,146 @@ namespace TraceabilityV3.Controllers
             }
         }
 
+
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("api/APIHandlingUnits/CheckWaypoint/{device}/{operatorId}")]
+        public async Task<IHttpActionResult> CheckWaypoint(string device, string operatorId)
+        {
+            // Get the current waypointId for the device
+            int? waypointId = db.Devices
+                .Where(d => d.Description == device)
+                .Select(d => d.Waypoint)
+                .FirstOrDefault();
+
+            if (waypointId == null)
+                return NotFound();
+
+            // Load the current waypoint
+            var callingWaypoint = await db.Waypoints.FindAsync(waypointId);
+
+            if (callingWaypoint == null)
+                return NotFound();
+
+            // Get all variable waypoints at the same location
+            var vWaypoints = db.Waypoints
+                .Where(w => w.VariableWaypoint == true && w.Location == callingWaypoint.Location)
+                .Select(w => new WaypointDto
+                {
+                    Description = w.Description,
+                    Status = w.Status
+                })
+                .AsNoTracking()
+                .ToList();
+
+            return Ok(vWaypoints);
+        }
+
+
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("api/APIHandlingUnits/ChangeWaypoint/{Device}/{operatorId}")]
+        public async Task<IHttpActionResult> ChangeWaypoint(string Device, string operatorId)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(Device) || string.IsNullOrEmpty(operatorId))
+                {
+                    return BadRequest("Invalid input parameters.");
+                }
+
+                List<WaypointDto> result = null;
+
+                // Get the current waypoint ID for the device
+                int? waypointId = db.Devices
+                    .Where(d => d.Description == Device)
+                    .Select(d => d.Waypoint)
+                    .FirstOrDefault();
+
+                if (waypointId == null)
+                {
+                    return BadRequest("Device not associated with a waypoint.");
+                }
+
+                // Load the current waypoint and its toWaypoint
+                var callingWaypoint = db.Waypoints.Find(waypointId);
+                var currentToWaypoint = db.Waypoints.Find(callingWaypoint.ToWaypoint);
+
+                if (currentToWaypoint == null || !(currentToWaypoint.VariableWaypoint ?? false))
+
+                {
+                    return BadRequest("Current 'toWaypoint' is invalid or not a variable waypoint.");
+                }
+
+                // Look for an available open variable waypoint at the same location (excluding the current one)
+                var availableOpenWaypoint = db.Waypoints
+                    .Where(w => w.VariableWaypoint == true
+                                && w.Status == "Open"
+                                && w.Location == callingWaypoint.Location)
+                    .FirstOrDefault();
+
+                if (availableOpenWaypoint == null)
+                {
+                    return BadRequest("NO OPEN BINS");
+                }
+
+                // Get all handling units in the current toWaypoint
+                var handlingUnitsToMove = db.HandlingUnits
+                    .Where(h => h.Status == "To " + currentToWaypoint.Description)
+                    .ToList();
+
+                bool binWasClosed = false;
+
+                // Get the next waypoint to move HUs to
+                var nextWaypoint = db.Waypoints.Find(currentToWaypoint.ToWaypoint);
+
+                if (nextWaypoint == null)
+                {
+                    return BadRequest("Next waypoint is not defined.");
+                }
+
+                // If there are handling units, transfer and close current bin
+                if (handlingUnitsToMove.Count > 0)
+                {
+                    foreach (var hu in handlingUnitsToMove)
+                    {
+                        await ConfirmHandlingUnitInternal(hu.SSCC, currentToWaypoint.Id.ToString(), operatorId);                       
+                    }
+
+                    currentToWaypoint.Status = "Closed";
+                    db.Entry(currentToWaypoint).State = EntityState.Modified;
+                    binWasClosed = true;
+                }
+
+                // If the bin was closed, assign a new one
+                if (binWasClosed)
+                {
+                    callingWaypoint.ToWaypoint = availableOpenWaypoint.Id;
+                    availableOpenWaypoint.Status = "In Use";
+
+                    db.Entry(availableOpenWaypoint).State = EntityState.Modified;
+                    db.Entry(callingWaypoint).State = EntityState.Modified;
+                }
+
+                await db.SaveChangesAsync();
+
+                // Return updated list of variable waypoints at the same location
+                result = db.Waypoints
+                    .Where(w => w.VariableWaypoint == true && w.Location == callingWaypoint.Location)
+                    .Select(w => new WaypointDto
+                    {
+                        Description = w.Description,
+                        Status = w.Status
+                    })
+                    .AsNoTracking()
+                    .ToList();
+
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(ex);
+            }
+        }
+
         // GET: api/APIHandlingUnits/PendingHandlingUnits/WaypointId
         [System.Web.Http.HttpGet]
         [System.Web.Http.Route("api/APIHandlingUnits/PendingHandlingUnits/{Device}")]
@@ -120,7 +266,27 @@ namespace TraceabilityV3.Controllers
             {
                 Status1 = "To " + CurrentWaypoint.Description;
                 Status2 = "Accepted at " + CurrentWaypoint.Description;
-                InitiatingWaypointId = db.Waypoints.Where(w => w.ToWaypoint == CurrentWaypoint.Id).Select(w => w.Id).FirstOrDefault().ToString();                
+                InitiatingWaypointId = db.Waypoints.Where(w => w.ToWaypoint == CurrentWaypoint.Id).Select(w => w.Id).FirstOrDefault().ToString();
+                var iWaypoint = db.Waypoints
+                                .Where(w => w.ToWaypoint == CurrentWaypoint.Id)
+                                .FirstOrDefault();
+
+                if (iWaypoint?.VariableWaypoint == true)
+                {
+                    while (iWaypoint != null && iWaypoint.Status != "Closed")
+                    {
+                        iWaypoint = db.Waypoints
+                            .Where(w => w.ToWaypoint == CurrentWaypoint.Id && w.Status == "Closed")
+                            .FirstOrDefault();
+
+                        if (iWaypoint == null)
+                        {
+                            Console.WriteLine("No closed waypoint found!");
+                            break;
+                        }
+                    }
+                }
+                InitiatingWaypointId = iWaypoint.Id.ToString();
             }
 
             if (WaypointId != null)
@@ -285,6 +451,44 @@ namespace TraceabilityV3.Controllers
             }
         }
 
+        private async Task<bool> ConfirmHandlingUnitInternal(string SSCC, string WaypointId, string UserId)
+        {
+            if (string.IsNullOrEmpty(SSCC))
+                return false;
+
+            var handlingUnit = await db.HandlingUnits.FirstOrDefaultAsync(h => h.SSCC == SSCC);
+            if (handlingUnit == null)
+                return false;
+
+            var CurrentWaypoint = db.Waypoints.Find(Convert.ToInt32(WaypointId));
+            var NextWaypoint = db.Waypoints.FirstOrDefault(wp => wp.Id == CurrentWaypoint.ToWaypoint);
+
+            handlingUnit.Status = "To " + NextWaypoint.Description;
+            handlingUnit.IsUploaded = false;
+            db.Entry(handlingUnit).State = EntityState.Modified;
+
+            var HandlingUnitMovement = new HandlingUnitMovement
+            {
+                SSCC = SSCC,
+                Device = WaypointId,
+                MovementTime = DateTime.Now,
+                CreatedBy = UserId,
+                Type = CurrentWaypoint.Type,
+                Status = "To " + NextWaypoint.Description,
+                Horse = "",
+                Source = CurrentWaypoint.Description,
+                Destination = NextWaypoint.Description,
+                Waypoint = CurrentWaypoint.Id.ToString(),
+                RejectID = ""
+            };
+
+            db.HandlingUnitMovements.Add(HandlingUnitMovement);
+
+            int changes = await db.SaveChangesAsync();
+            return changes > 0;
+        }
+
+
         // GET: api/APIHandlingUnits/ConfirmHandlingUnit/SSCC/WaypointId/UserId
         [System.Web.Http.HttpGet]
         [System.Web.Http.Route("api/APIHandlingUnits/ConfirmHandlingUnits/{SSCC}/{WaypointId}/{UserId}")]
@@ -334,9 +538,41 @@ namespace TraceabilityV3.Controllers
                 };
 
                 db.HandlingUnitMovements.Add(HandlingUnitMovement);
-
-
                 int changes = await db.SaveChangesAsync();
+
+
+                var iWaypoint = db.Waypoints
+                            .Where(w => w.ToWaypoint == CurrentWaypoint.Id)
+                            .FirstOrDefault();
+
+                if (iWaypoint?.VariableWaypoint == true)
+                {
+                    while (iWaypoint != null && iWaypoint.Status != "Closed")
+                    {
+                        iWaypoint = db.Waypoints
+                            .Where(w => w.ToWaypoint == CurrentWaypoint.Id && w.Status == "Closed")
+                            .FirstOrDefault();
+
+                        if (iWaypoint == null)
+                        {
+                            Console.WriteLine("No closed waypoint found!");
+                            break;
+                        }
+                    }
+
+                    if (iWaypoint != null)
+                    {
+                        if (db.HandlingUnits.Where(h => h.Status == "Accepted at " + CurrentWaypoint.Description || h.Status == "To " + CurrentWaypoint.Description)
+                       .AsNoTracking().Count() == 0)
+                        {
+                            iWaypoint.Status = "Open";
+                            db.Entry(iWaypoint).State = EntityState.Modified;
+                            await db.SaveChangesAsync();
+                        }
+                    }
+                }
+
+                
 
                 if (changes > 0)
                 {
@@ -424,6 +660,14 @@ namespace TraceabilityV3.Controllers
             }
         }
 
+        // GET: api/APIHandlingUnits/NewHandlingUnit/ScannedValue/WaypointId/UserId
+        [System.Web.Http.HttpGet]
+        [System.Web.Http.Route("api/APIHandlingUnits/GetZPL/{waypointID}/{SSCC}")]
+        public async Task<string> GetZPL(string waypointID, string SSCC)
+        {
+            string newLabel = functionsController.GenerateZPL(waypointID, SSCC);
+            return newLabel;
+        }
 
         // GET: api/APIHandlingUnits/NewHandlingUnit/ScannedValue/WaypointId/UserId
         [System.Web.Http.HttpGet]
