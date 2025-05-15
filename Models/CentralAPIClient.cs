@@ -87,7 +87,9 @@ namespace TraceabilityV3.Models
                     PDet_ConsUnits = ZplLable?.MaterialQtyCON.HasValue == true
                         ? (int)Math.Round(ZplLable.MaterialQtyCON.Value)
                         : 0,
-                    PDet_NetWt = ZplLable?.MaterialNetWt ?? 0m
+                    PDet_NetWt = (ZplLable?.MaterialNetWt.HasValue == true && ZplLable.MaterialQtyCON.HasValue && ZplLable.MaterialQtyCON.Value != 0)
+                        ? ZplLable.MaterialNetWt.Value / (int)Math.Round(ZplLable.MaterialQtyCON.Value)
+                        : 0m
                 };
 
                 var combinedData = new
