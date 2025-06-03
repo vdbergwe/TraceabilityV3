@@ -540,7 +540,6 @@ namespace TraceabilityV3.Controllers
                 db.HandlingUnitMovements.Add(HandlingUnitMovement);
                 int changes = await db.SaveChangesAsync();
 
-
                 var iWaypoint = db.Waypoints
                             .Where(w => w.ToWaypoint == CurrentWaypoint.Id)
                             .FirstOrDefault();
@@ -570,9 +569,7 @@ namespace TraceabilityV3.Controllers
                             await db.SaveChangesAsync();
                         }
                     }
-                }
-
-                
+                }                
 
                 if (changes > 0)
                 {

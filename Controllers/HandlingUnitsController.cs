@@ -193,8 +193,139 @@ namespace TraceabilityV3.Controllers
             return PartialView();
         }
 
-
         public ActionResult ProductionReport(string FromTime, string ToTime, bool Detail = false)
+        {
+            DateTime? fromTimeValue = null;
+            DateTime? toTimeValue = null;
+
+            if (string.IsNullOrEmpty(FromTime) || string.IsNullOrEmpty(ToTime))
+            {
+                var now = DateTime.Now.TimeOfDay;
+                if (now >= new TimeSpan(8, 30, 1) && now <= new TimeSpan(16, 30, 0))
+                {
+                    fromTimeValue = DateTime.Today.Add(new TimeSpan(8, 0, 0));
+                    toTimeValue = DateTime.Today.Add(new TimeSpan(15, 59, 59));
+                }
+                else if ((now >= new TimeSpan(16, 30, 1) && now <= new TimeSpan(23, 59, 59)) || now <= new TimeSpan(0, 30, 0))
+                {
+                    fromTimeValue = DateTime.Today.Add(new TimeSpan(16, 0, 0));
+                    toTimeValue = DateTime.Today.Add(new TimeSpan(23, 59, 59));
+                }
+                else if (now >= new TimeSpan(0, 30, 1) && now <= new TimeSpan(8, 30, 0))
+                {
+                    fromTimeValue = DateTime.Today.Add(new TimeSpan(0, 0, 0));
+                    toTimeValue = DateTime.Today.Add(new TimeSpan(7, 59, 59));
+                }
+            }
+            else
+            {
+                fromTimeValue = DateTime.Parse(FromTime);
+                toTimeValue = DateTime.Parse(ToTime);
+            }
+
+            // Fetch handling unit history with selected fields only.
+            var handlingUnitsHistory = db.HandlingUnits
+                                    .Where(a => a.Created >= fromTimeValue && a.Created <= toTimeValue)
+                                    .Join(
+                                        db.SAPMaterials, // No filtering inside Join
+                                        hu => new { hu.MATNR, hu.WERKS },  // Joining on both MATNR and WERKS
+                                        sm => new { sm.MATNR, sm.WERKS },  // Ensuring WERKS match
+                                        (hu, sm) => new
+                                        {
+                                            hu.SSCC,
+                                            hu.Created,
+                                            hu.MATNR,
+                                            hu.Status,
+                                            Description = sm.MAKTX
+                                        })
+                                    .OrderByDescending(a => a.Created)
+                                    .AsNoTracking()
+                                    .ToList();
+
+
+            var handlingUnitSSCCs = handlingUnitsHistory.Select(a => a.SSCC).ToList();
+
+            // Fetch Handling Units Movements
+            var handling_units_ToSap = (from hu in db.HandlingUnitMovements
+                                        join huHist in db.HandlingUnits on hu.SSCC equals huHist.SSCC
+                                        where huHist.Created >= fromTimeValue &&
+                                              huHist.Created <= toTimeValue &&
+                                              hu.Status.Contains("Warehouse")
+                                        select new
+                                        {
+                                            hu.SSCC,
+                                            hu.MovementTime
+                                        })
+                                        .AsNoTracking()
+                                        .ToList();
+
+            // Filter: select handling unit SSCCs from movements where the created time is after toTimeValue.
+            var remove_units = handling_units_ToSap
+                .Where(a => a.MovementTime >= toTimeValue)
+                .Select(a => a.SSCC)
+                .ToHashSet();
+
+            // Remove units from history.
+            var updated_handling_Units_history = handlingUnitsHistory
+                .Where(a => !remove_units.Contains(a.SSCC))
+                .ToList();
+
+            // Fetch all Product data for the distinct products in the updated history.
+            var productIds = updated_handling_Units_history.Select(a => a.MATNR).Distinct().ToList();
+            var productDetails = db.SAPMaterials
+                .Where(p => productIds.Contains(p.MATNR) && p.WERKS == "1110")
+                .Select(p => new
+                {
+                    p.SYSID,
+                    p.MANDT,
+                    p.WERKS,
+                    p.MATNR,
+                    p.MAKTX,
+                    p.NetWt_HU
+                })
+                .AsNoTracking()
+                .ToDictionary(p => p.MATNR);
+
+            // Group data and build view models.
+            var handlingUnitsData = updated_handling_Units_history
+                .GroupBy(a => a.MATNR)
+                .Select(g => new HandlingUnitsViewModel
+                {
+                    ProductId = Convert.ToInt32(g.Key),
+                    PLU = productDetails.ContainsKey(g.Key) ? productDetails[g.Key].MATNR : "",
+                    Description = productDetails.ContainsKey(g.Key) ? productDetails[g.Key].MAKTX : "",
+                    TotalScanned = g.Count(),
+                    TotalRejected = g.Count(a => a.Status.Contains("Rejected")),
+                    TotalPending = g.Count(a => !a.Status.Contains("Rejected") && !a.Status.Contains("Warehouse")),
+                    TotalAccepted = g.Count(a => a.Status.Contains("Warehouse")),
+                    TotalKG = Convert.ToInt32(g.Count(a => !a.Status.Contains("Rejected")) *
+                               (productDetails.ContainsKey(g.Key) ? productDetails[g.Key].NetWt_HU : 0) / 1000),
+                    ProductItems = g.Select(a => new HandlingUnitsItemViewModel
+                    {
+                        SSCC = a.SSCC,
+                        Created = a.Created,
+                        BatchDescription = a.Description,
+                        RejectReason = a.Status.Contains("Rejected") ? "Rejected" : ""
+                    }).ToList()
+                })
+                .ToList();
+
+            // Prepare ViewBag data.
+            ViewBag.ViewModel = handlingUnitsData.OrderBy(a => a.PLU);
+            ViewBag.TotalScanned = handlingUnitsData.Sum(a => a.TotalScanned);
+            ViewBag.TotalRejected = handlingUnitsData.Sum(a => a.TotalRejected);
+            ViewBag.TotalAccepted = handlingUnitsData.Sum(a => a.TotalAccepted);
+            ViewBag.TotalPending = handlingUnitsData.Sum(a => a.TotalPending);
+            ViewBag.TotalWeight = Convert.ToInt32(handlingUnitsData.Sum(h => h.TotalKG));
+            ViewBag.Products = updated_handling_Units_history.Select(a => a.MATNR).Distinct();
+            ViewBag.ToTime = toTimeValue.Value.ToString("yyyy-MM-ddTHH:mm");
+            ViewBag.FromTime = fromTimeValue.Value.ToString("yyyy-MM-ddTHH:mm");
+            ViewBag.DisplayDetail = Detail.ToString();
+
+            return PartialView(handlingUnitsData);
+        }
+
+        public ActionResult BinReport(string FromTime, string ToTime, bool Detail = false)
         {
             DateTime? fromTimeValue = null;
             DateTime? toTimeValue = null;
